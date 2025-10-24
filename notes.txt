@@ -1,0 +1,19 @@
+NOTAS IMPORTANTES ANTES DE LAS TORRES
+
+- Esta guía no pretende ser exhaustiva; está basada en información del autor y puede contener omisiones.
+- Valores sujetos a cambios: los desarrolladores pueden cambiar nerfs/buffs sin aviso.
+- La velocidad de ataque y otros valores pueden variar según la rareza de la carta; los valores aquí son en su mayoría para cartas COMUNES / Nivel 1 cuando corresponde.
+- En el juego, las mejoras de velocidad aparecen como '+' (ataques por segundo); aquí se muestran con '-' cuando el juego indica reducción de retraso por ataque.
+- Cada torre puede ser mejorada hasta 5 veces en partida (marcadas como ** hasta ****** en el JSON).
+- Donde una cifra aparece como '+X' significa que el aumento exacto depende de la rareza y nivel de tu carta.
+- Las torres de evento o colaboraciones pueden no ser actualizables fuera del evento.
+
+Uso del JSON:
+- El archivo `towers.json` contiene un campo `notes` con estas notas y un array `towers` con los objetos de cada torre.
+- Cada torre contiene: name, unlock_at, targets, type, range, attack_speed, damage, crit_chance, upgrades (array), commentary.
+
+Créditos y aviso:
+- Esta guía agrupa y resume comentarios y estadísticas extraídas del contenido proporcionado por el usuario.
+- No afiliada oficialmente al desarrollador del juego.
+
+Fecha de generación: 24 de octubre de 2025
