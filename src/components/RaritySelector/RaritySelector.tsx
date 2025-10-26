@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { RARITY_LIST } from '../../utils/rarityUtils';
 import type { Rarity } from '../../types/tower';
 import './RaritySelector.css';
@@ -7,7 +8,7 @@ interface RaritySelectorProps {
   onRarityChange: (rarity: Rarity) => void;
 }
 
-export const RaritySelector = ({ selectedRarity, onRarityChange }: RaritySelectorProps) => {
+const RaritySelectorComponent = ({ selectedRarity, onRarityChange }: RaritySelectorProps) => {
   return (
     <div id="global-rarity-selector">
       <label>Rareza Global:</label>
@@ -27,3 +28,7 @@ export const RaritySelector = ({ selectedRarity, onRarityChange }: RaritySelecto
     </div>
   );
 };
+
+export const RaritySelector = memo(RaritySelectorComponent);
+
+RaritySelector.displayName = 'RaritySelector';

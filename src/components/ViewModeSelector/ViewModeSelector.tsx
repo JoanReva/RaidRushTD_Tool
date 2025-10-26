@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { ViewMode } from '../../types/tower';
 import './ViewModeSelector.css';
 
@@ -12,7 +13,7 @@ const VIEW_MODES: { value: ViewMode; label: string }[] = [
   { value: 'minimal', label: 'Minimal' },
 ];
 
-export const ViewModeSelector = ({ selectedMode, onModeChange }: ViewModeSelectorProps) => {
+const ViewModeSelectorComponent = ({ selectedMode, onModeChange }: ViewModeSelectorProps) => {
   return (
     <div id="view-mode-selector">
       <label>Modo de Vista:</label>
@@ -32,3 +33,7 @@ export const ViewModeSelector = ({ selectedMode, onModeChange }: ViewModeSelecto
     </div>
   );
 };
+
+export const ViewModeSelector = memo(ViewModeSelectorComponent);
+
+ViewModeSelector.displayName = 'ViewModeSelector';

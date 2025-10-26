@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { useAppState } from './hooks/useAppState';
 import { RaritySelector } from './components/RaritySelector/RaritySelector';
 import { ViewModeSelector } from './components/ViewModeSelector/ViewModeSelector';
@@ -11,6 +12,29 @@ const data = towersData as TowersData;
 function App() {
   const { globalRarity, setGlobalRarity, viewMode, setViewMode } = useAppState();
 
+  const handleRarityChange = useCallback(
+    (rarity: typeof globalRarity) => setGlobalRarity(rarity),
+    [setGlobalRarity]
+  );
+
+  const handleViewModeChange = useCallback(
+    (mode: typeof viewMode) => setViewMode(mode),
+    [setViewMode]
+  );
+
+  const towerCards = useMemo(
+    () =>
+      data.towers.map((tower, index) => (
+        <TowerCard
+          key={`${tower.name}-${index}`}
+          tower={tower}
+          viewMode={viewMode}
+          globalRarity={globalRarity}
+        />
+      )),
+    [viewMode, globalRarity]
+  );
+
   return (
     <div className="app-container">
       <header>
@@ -21,21 +45,12 @@ function App() {
           </div>
         </div>
         <div id="controls-panel">
-          <ViewModeSelector selectedMode={viewMode} onModeChange={setViewMode} />
-          <RaritySelector selectedRarity={globalRarity} onRarityChange={setGlobalRarity} />
+          <ViewModeSelector selectedMode={viewMode} onModeChange={handleViewModeChange} />
+          <RaritySelector selectedRarity={globalRarity} onRarityChange={handleRarityChange} />
         </div>
       </header>
 
-      <main id="towers-container">
-        {data.towers.map((tower, index) => (
-          <TowerCard
-            key={`${tower.name}-${index}`}
-            tower={tower}
-            viewMode={viewMode}
-            globalRarity={globalRarity}
-          />
-        ))}
-      </main>
+      <main id="towers-container">{towerCards}</main>
 
       <footer>
         <p>© 2025 Raid Rush TD Tool | Herramienta no oficial</p>

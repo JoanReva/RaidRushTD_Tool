@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './StatBox.css';
 
 interface StatBoxProps {
@@ -8,7 +9,7 @@ interface StatBoxProps {
   layout?: 'horizontal' | 'vertical';
 }
 
-export const StatBox = ({ emoji, label, value, type, layout = 'vertical' }: StatBoxProps) => {
+export const StatBox = memo(({ emoji, label, value, type, layout = 'vertical' }: StatBoxProps) => {
   return (
     <div className={`stat-box stat-box-${layout}`} data-stat={type}>
       <span className="stat-emoji">{emoji}</span>
@@ -18,4 +19,6 @@ export const StatBox = ({ emoji, label, value, type, layout = 'vertical' }: Stat
       </div>
     </div>
   );
-};
+});
+
+StatBox.displayName = 'StatBox';

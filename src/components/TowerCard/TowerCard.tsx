@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo, memo } from 'react';
 import type { Tower, Rarity, ViewMode } from '../../types/tower';
 import { calculatePower, getTargetInfo, getUnlockInfo } from '../../utils/towerUtils';
+import { useTowerLevel } from '../../hooks';
+import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS } from '../../constants';
 import { StatBox } from './StatBox';
 import { PowerDisplay } from './PowerDisplay';
 import { LevelDisplay } from './LevelDisplay';
@@ -12,30 +14,29 @@ interface TowerCardProps {
   globalRarity: Rarity;
 }
 
-export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => {
-  const [level, setLevel] = useState(1);
+const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) => {
   const [commentaryOpen, setCommentaryOpen] = useState(false);
+  const { level, incrementLevel, decrementLevel } = useTowerLevel();
 
-  const power = calculatePower(tower, globalRarity, level);
-  const unlockInfo = getUnlockInfo(tower.unlock_at);
+  const power = useMemo(
+    () => calculatePower(tower, globalRarity, level),
+    [tower, globalRarity, level]
+  );
 
-  const incrementLevel = () => {
-    if (level < 100) setLevel(level + 1);
-  };
+  const unlockInfo = useMemo(
+    () => getUnlockInfo(tower.unlock_at),
+    [tower.unlock_at]
+  );
 
-  const decrementLevel = () => {
-    if (level > 1) setLevel(level - 1);
-  };
+  const targetInfo = useMemo(
+    () => getTargetInfo(tower.targets),
+    [tower.targets]
+  );
 
-  const getTypeIcon = (type: string): string => {
-    const icons: Record<string, string> = {
-      Vanguard: '/vanguard.png',
-      Swift: '/swift.png',
-      Elemental: '/elemental.png',
-      Utility: '/utility.png',
-    };
-    return icons[type] || '/vanguard.png';
-  };
+  const typeIcon = useMemo(
+    () => TOWER_TYPE_ICONS[tower.type] || TOWER_TYPE_ICONS.Vanguard,
+    [tower.type]
+  );
 
   return (
     <div className={`tower-card view-${viewMode}`}>
@@ -52,12 +53,14 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
               src={tower.image}
               alt={tower.name}
               className="tower-main-image"
+              loading="lazy"
             />
             <div className="type-icon-overlay-wrapper">
               <img
-                src={getTypeIcon(tower.type)}
+                src={typeIcon}
                 alt={tower.type}
                 className="type-icon-overlay"
+                loading="lazy"
               />
             </div>
           </div>
@@ -66,35 +69,35 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
 
       <div className="tower-body">
         <StatBox
-          emoji={getTargetInfo(tower.targets).emoji}
+          emoji={targetInfo.emoji}
           label="Targets"
-          value={getTargetInfo(tower.targets).text}
+          value={targetInfo.text}
           type="targets"
           layout="horizontal"
         />
 
         <div className="tower-stats-grid">
           <StatBox
-            emoji="💥"
+            emoji={TOWER_STAT_EMOJIS.DAMAGE}
             label="Daño"
             value={tower.damage}
             type="damage"
           />
           <StatBox
-            emoji="⚡"
+            emoji={TOWER_STAT_EMOJIS.SPEED}
             label="Velocidad"
             value={tower.attack_speed}
             type="attackrate"
           />
           <StatBox
-            emoji="📡"
+            emoji={TOWER_STAT_EMOJIS.RANGE}
             label="Rango"
             value={tower.range}
             type="range"
           />
           {tower.crit_chance && (
             <StatBox
-              emoji="🎯"
+              emoji={TOWER_STAT_EMOJIS.CRIT}
               label="Crítico"
               value={tower.crit_chance}
               type="crit"
@@ -103,7 +106,7 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
         </div>
 
         <StatBox
-          emoji="🔓"
+          emoji={TOWER_STAT_EMOJIS.UNLOCK}
           label={unlockInfo.label}
           value={unlockInfo.value}
           type="unlock"
@@ -112,7 +115,7 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
 
         {tower.upgrades && tower.upgrades.length > 0 && (
           <div className="tower-upgrades">
-            <div className="upgrades-title">🔧 Mejoras</div>
+            <div className="upgrades-title">{TOWER_STAT_EMOJIS.UPGRADES} Mejoras</div>
             <div className="upgrades-list">
               {tower.upgrades.map((upgrade, index) => (
                 <div key={index} className="upgrade-item">
@@ -134,8 +137,9 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
             <button
               className="commentary-toggle"
               onClick={() => setCommentaryOpen(!commentaryOpen)}
+              aria-expanded={commentaryOpen}
             >
-              💬 {commentaryOpen ? 'Ocultar' : 'Ver'} Comentario
+              {TOWER_STAT_EMOJIS.COMMENTARY} {commentaryOpen ? 'Ocultar' : 'Ver'} Comentario
             </button>
             {commentaryOpen && (
               <div className="commentary-content">{tower.commentary}</div>
@@ -157,3 +161,7 @@ export const TowerCard = ({ tower, viewMode, globalRarity }: TowerCardProps) => 
     </div>
   );
 };
+
+export const TowerCard = memo(TowerCardComponent);
+
+TowerCard.displayName = 'TowerCard';

@@ -1,7 +1,12 @@
 import type { Tower, UnlockInfo } from '../types/tower';
 import type { Rarity } from '../types/tower';
 import { RARITY_MULTIPLIERS } from './rarityUtils';
+import { LEVEL_POWER_MULTIPLIER, TOWER_TARGET_EMOJIS } from '../constants';
 
+/**
+ * Formatea el texto de desbloqueo de una torre
+ * @deprecated Usar getUnlockInfo en su lugar
+ */
 export const formatUnlockText = (unlockValue: UnlockInfo | string | null | undefined): string => {
   if (unlockValue === null || unlockValue === undefined || unlockValue === '') {
     return 'Event: Special';
@@ -82,6 +87,13 @@ export const getUnlockInfo = (unlockValue: UnlockInfo | string | null | undefine
   return { label: 'Event', value: 'Unknown' };
 };
 
+/**
+ * Calcula el poder total de una torre basado en sus estadísticas, rareza y nivel
+ * @param tower - Datos de la torre
+ * @param rarity - Rareza de la torre
+ * @param level - Nivel de la torre
+ * @returns Poder calculado redondeado a 1 decimal
+ */
 export const calculatePower = (tower: Tower, rarity: Rarity, level: number): number => {
   const baseDamage = parseFloat(tower.damage.match(/[\d.]+/)?.[0] || '0');
   const attackSpeed = parseFloat(tower.attack_speed.match(/[\d.]+/)?.[0] || '1');
@@ -89,7 +101,7 @@ export const calculatePower = (tower: Tower, rarity: Rarity, level: number): num
   const critChance = parseFloat(tower.crit_chance?.match(/[\d.]+/)?.[0] || '0');
 
   const rarityMultiplier = RARITY_MULTIPLIERS[rarity];
-  const levelMultiplier = 1 + (level - 1) * 0.1;
+  const levelMultiplier = 1 + (level - 1) * LEVEL_POWER_MULTIPLIER;
 
   const dps = baseDamage / attackSpeed;
   const power = dps * range * (1 + critChance / 100) * rarityMultiplier * levelMultiplier;
@@ -97,16 +109,21 @@ export const calculatePower = (tower: Tower, rarity: Rarity, level: number): num
   return Math.round(power * 10) / 10;
 };
 
+/**
+ * Obtiene el emoji y texto correspondiente al tipo de objetivo
+ * @param targets - Cadena de texto con los objetivos
+ * @returns Objeto con emoji y texto formateado
+ */
 export const getTargetInfo = (targets: string): { emoji: string; text: string } => {
   const lower = targets.toLowerCase();
   if (lower.includes('ground') && lower.includes('air')) {
-    return { emoji: '🌐', text: targets };
+    return { emoji: TOWER_TARGET_EMOJIS.BOTH, text: targets };
   }
   if (lower.includes('ground')) {
-    return { emoji: '⛰️', text: targets };
+    return { emoji: TOWER_TARGET_EMOJIS.GROUND, text: targets };
   }
   if (lower.includes('air')) {
-    return { emoji: '☁️', text: targets };
+    return { emoji: TOWER_TARGET_EMOJIS.AIR, text: targets };
   }
-  return { emoji: '🎯', text: targets };
+  return { emoji: TOWER_TARGET_EMOJIS.DEFAULT, text: targets };
 };

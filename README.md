@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# 🏰 Raid Rush TD - Tower Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una herramienta profesional e interactiva para comparar y analizar torres del juego Raid Rush Tower Defense.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📊 **Visualización de 29 torres** con todas sus estadísticas
+- 🎨 **Sistema de rarezas** (Common, Good, Rare, Epic, Epic+, Legendary)
+- 📈 **Cálculo dinámico de poder** basado en rareza y nivel
+- 🎯 **Tres modos de vista** (Detallado, Simple, Minimal)
+- 💪 **Sistema de niveles** con controles interactivos (1-100)
+- 🎨 **Tematización con CSS Variables** para personalización fácil
+- ⚡ **Optimizado con React.memo y hooks** para máximo rendimiento
+- 📱 **Diseño responsive** adaptable a diferentes pantallas
 
-## React Compiler
+## 🚀 Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** - Librería UI con hooks modernos
+- **TypeScript** - Tipado estático para mayor seguridad
+- **Vite** - Build tool ultra rápido con HMR
+- **CSS Variables** - Sistema de tematización centralizado
+- **ESLint** - Linting y mejores prácticas
 
-## Expanding the ESLint configuration
+## 📦 Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Clonar el repositorio
+git clone https://github.com/JoanReva/RaidRushTD_Tool.git
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Instalar dependencias
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Scripts Disponibles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev      # Inicia el servidor de desarrollo (localhost:5173)
+npm run build    # Genera build de producción
+npm run preview  # Vista previa del build de producción
+npm run lint     # Ejecuta ESLint para verificar código
 ```
+
+## 📝 Mejoras
+1. **Filtros**: Por tipo, rareza, estadísticas
+2. **Ordenamiento**: Por poder, daño, etc.
+3. **Comparación**: Seleccionar 2-3 torres para comparar
+4. **Favoritos**: Guardar torres favoritas en localStorage
+5. **Dark Mode**: Tema oscuro usando CSS Variables
+
+## 📝 Licencia
+
+Este es un proyecto no oficial y con fines educativos.
+
+## 👤 Autor
+
+**Joan Reva**
+- GitHub: [@JoanReva](https://github.com/JoanReva)
+
+---
+
+⭐ Si te gusta este proyecto, considera darle una estrella en GitHub!
