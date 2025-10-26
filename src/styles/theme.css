@@ -1,0 +1,127 @@
+/* ============================================
+   THEME VARIABLES - Cambia estos valores para personalizar colores
+   ============================================ */
+:root {
+  /* Colores de rareza - Del diseño original */
+  --rarity-common-from: #9ca3af;
+  --rarity-common-to: #6b7280;
+  --rarity-common-text: #ffffff;
+
+  --rarity-good-from: #34d399;
+  --rarity-good-to: #10b981;
+  --rarity-good-text: #ffffff;
+
+  --rarity-rare-from: #60a5fa;
+  --rarity-rare-to: #3b82f6;
+  --rarity-rare-text: #ffffff;
+
+  --rarity-epic-from: #a78bfa;
+  --rarity-epic-to: #8b5cf6;
+  --rarity-epic-text: #ffffff;
+
+  --rarity-epic-plus-from: #c084fc;
+  --rarity-epic-plus-to: #9333ea;
+  --rarity-epic-plus-text: #ffffff;
+
+  --rarity-legendary-from: #fbbf24;
+  --rarity-legendary-to: #f59e0b;
+  --rarity-legendary-text: #1f2937;
+
+  /* Colores de header/footer */
+  --header-bg-from: #1e3554;
+  --header-bg-to: #2d4a6e;
+  --header-border: #4a90e2;
+  --header-title: #f0f4f8;
+  --header-subtitle: #b8c9e0;
+
+  /* Colores de tarjetas */
+  --card-bg-from: #bdd4e7;
+  --card-bg-to: #8ca7c4;
+  --card-border: #5b7a9c;
+  --card-shadow: rgba(0, 0, 0, 0.35);
+
+  /* Colores de header de tarjeta */
+  --card-header-from: #d4e3f0;
+  --card-header-to: #a8c5db;
+  --card-header-border: #8099b3;
+
+  /* Colores de body de tarjeta */
+  --card-body-from: #c8d9e8;
+  --card-body-to: #a8bdd4;
+
+  /* Colores de stats - Del diseño original con transparencias */
+  --stat-damage-bg: rgba(52, 211, 153, 0.3);
+  --stat-damage-bg-to: rgba(16, 185, 129, 0.2);
+  --stat-damage-text: #1e293b;
+  --stat-damage-border: rgba(16, 185, 129, 0.5);
+  
+  --stat-attackrate-bg: rgba(251, 146, 60, 0.3);
+  --stat-attackrate-bg-to: rgba(249, 115, 22, 0.2);
+  --stat-attackrate-text: #1e293b;
+  --stat-attackrate-border: rgba(249, 115, 22, 0.5);
+  
+  --stat-range-bg: rgba(96, 165, 250, 0.3);
+  --stat-range-bg-to: rgba(59, 130, 246, 0.2);
+  --stat-range-text: #1e293b;
+  --stat-range-border: rgba(59, 130, 246, 0.5);
+  
+  --stat-crit-bg: rgba(239, 68, 68, 0.3);
+  --stat-crit-bg-to: rgba(220, 38, 38, 0.2);
+  --stat-crit-text: #1e293b;
+  --stat-crit-border: rgba(220, 38, 38, 0.5);
+  
+  --stat-targets-bg: #ffffff;
+  --stat-targets-text: #1e293b;
+  --stat-targets-border: rgba(107, 138, 168, 0.4);
+
+  /* Colores de unlock - Del diseño original */
+  --unlock-bg-from: #ffd700;
+  --unlock-bg-to: #ffed4e;
+  --unlock-border: #cc9900;
+  --unlock-text: #1e293b;
+  --unlock-glow: rgba(0, 0, 0, 0.4);
+
+  /* Colores de power - Del diseño original */
+  --power-bg-from: #fef3c7;
+  --power-bg-to: #fde68a;
+  --power-border: #f59e0b;
+  --power-text: #92400e;
+  --power-glow: rgba(251, 191, 36, 0.8);
+
+  /* Colores de level - Del diseño original */
+  --level-bg-from: #e0f2fe;
+  --level-bg-to: #bae6fd;
+  --level-border: #0ea5e9;
+  --level-text: #0c4a6e;
+  --level-glow: rgba(56, 189, 248, 0.8);
+
+  /* Colores de upgrades - Del diseño original */
+  --upgrade-bg: rgba(255, 255, 255, 0.5);
+  --upgrade-border: rgba(107, 138, 168, 0.4);
+  --upgrade-text: #334155;
+
+  /* Colores de commentary */
+  --commentary-btn-from: #a78bfa;
+  --commentary-btn-to: #8b5cf6;
+  --commentary-border: #7c3aed;
+
+  /* Colores de controles */
+  --control-bg-from: #2a5298;
+  --control-bg-to: #1e3c72;
+  --control-border: #4a7ba7;
+  --control-text: #ffffff;
+
+  /* Colores de botones activos */
+  --active-btn-from: #10b981;
+  --active-btn-to: #059669;
+  --active-btn-glow: rgba(16, 185, 129, 0.4);
+
+  /* Background principal */
+  --main-bg-from: #667eea;
+  --main-bg-mid: #764ba2;
+  --main-bg-to: #f093fb;
+
+  /* Imagen de fondo de torre */
+  --tower-image-bg-from: #7a95b8;
+  --tower-image-bg-to: #4a6a8f;
+}

@@ -1,0 +1,135 @@
+/* StatBox Component Styles */
+.stat-box {
+  padding: 6px 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Layout vertical (para stats normales) */
+.stat-box-vertical .stat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* Layout horizontal (para targets y unlock con icono + label | value) */
+.stat-box-horizontal {
+  justify-content: flex-start;
+}
+
+.stat-box-horizontal .stat-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-box-horizontal .stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.stat-box-horizontal .stat-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: right;
+  flex: 1;
+}
+
+/* Emoji */
+.stat-emoji {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  flex-shrink: 0;
+}
+
+/* Labels y Values para layout vertical */
+.stat-box-vertical .stat-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
+
+.stat-box-vertical .stat-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.1;
+}
+
+/* Colores específicos por tipo de stat */
+.stat-box[data-stat="damage"] {
+  background: linear-gradient(135deg, var(--stat-damage-bg) 0%, var(--stat-damage-bg-to) 100%);
+  border-color: var(--stat-damage-border);
+}
+
+.stat-box[data-stat="attackrate"] {
+  background: linear-gradient(135deg, var(--stat-attackrate-bg) 0%, var(--stat-attackrate-bg-to) 100%);
+  border-color: var(--stat-attackrate-border);
+}
+
+.stat-box[data-stat="range"] {
+  background: linear-gradient(135deg, var(--stat-range-bg) 0%, var(--stat-range-bg-to) 100%);
+  border-color: var(--stat-range-border);
+}
+
+.stat-box[data-stat="crit"] {
+  background: linear-gradient(135deg, var(--stat-crit-bg) 0%, var(--stat-crit-bg-to) 100%);
+  border-color: var(--stat-crit-border);
+}
+
+.stat-box[data-stat="targets"] {
+  background: var(--stat-targets-bg);
+  border-color: var(--stat-targets-border);
+  margin-bottom: 8px;
+}
+
+.stat-box[data-stat="unlock"] {
+  background: linear-gradient(135deg, var(--unlock-bg-from) 0%, var(--unlock-bg-to) 100%);
+  border: 2px solid var(--unlock-border);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  margin-bottom: 8px;
+}
+
+.stat-box[data-stat="unlock"] .stat-emoji {
+  filter: drop-shadow(0 1px 2px var(--unlock-glow));
+}
+
+.stat-box[data-stat="unlock"] .stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--unlock-text);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+.stat-box[data-stat="unlock"] .stat-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--unlock-text);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  text-align: right;
+  flex: 1;
+}

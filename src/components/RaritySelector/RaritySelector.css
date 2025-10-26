@@ -1,0 +1,81 @@
+#global-rarity-selector {
+  background: linear-gradient(135deg, var(--control-bg-from) 0%, var(--control-bg-to) 100%);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--control-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#global-rarity-selector label {
+  color: var(--control-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.rarity-buttons {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.global-rarity-btn {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+  user-select: none;
+}
+
+.global-rarity-btn[data-rarity='Common'] {
+  background: linear-gradient(135deg, var(--rarity-common-from) 0%, var(--rarity-common-to) 100%);
+  color: var(--rarity-common-text);
+}
+
+.global-rarity-btn[data-rarity='Good'] {
+  background: linear-gradient(135deg, var(--rarity-good-from) 0%, var(--rarity-good-to) 100%);
+  color: var(--rarity-good-text);
+}
+
+.global-rarity-btn[data-rarity='Rare'] {
+  background: linear-gradient(135deg, var(--rarity-rare-from) 0%, var(--rarity-rare-to) 100%);
+  color: var(--rarity-rare-text);
+}
+
+.global-rarity-btn[data-rarity='Epic'] {
+  background: linear-gradient(135deg, var(--rarity-epic-from) 0%, var(--rarity-epic-to) 100%);
+  color: var(--rarity-epic-text);
+}
+
+.global-rarity-btn[data-rarity='Epic+'] {
+  background: linear-gradient(135deg, var(--rarity-epic-plus-from) 0%, var(--rarity-epic-plus-to) 100%);
+  color: var(--rarity-epic-plus-text);
+}
+
+.global-rarity-btn[data-rarity='Legendary'] {
+  background: linear-gradient(135deg, var(--rarity-legendary-from) 0%, var(--rarity-legendary-to) 100%);
+  color: var(--rarity-legendary-text);
+}
+
+.global-rarity-btn:hover:not(.active) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.global-rarity-btn.active {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px currentColor;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}

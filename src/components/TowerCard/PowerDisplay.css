@@ -1,0 +1,25 @@
+.power-display {
+  flex: 1;
+  background: linear-gradient(135deg, var(--power-bg-from) 0%, var(--power-bg-to) 100%);
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 2px solid var(--power-border);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+}
+
+.power-icon {
+  font-size: 1rem;
+  filter: drop-shadow(0 0 4px var(--power-glow));
+}
+
+.power-value {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--power-text);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  line-height: 1;
+}
