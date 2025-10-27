@@ -1,7 +1,7 @@
 import type { Rarity } from '../types/tower';
 
 /**
- * Multiplicadores de poder por nivel de rareza
+ * Power multipliers by rarity level
  */
 export const RARITY_MULTIPLIERS: Record<Rarity, number> = {
   'Common': 1.0,
@@ -13,7 +13,7 @@ export const RARITY_MULTIPLIERS: Record<Rarity, number> = {
 } as const;
 
 /**
- * Colores hexadecimales asociados a cada rareza
+ * Hexadecimal colors associated with each rarity
  */
 export const RARITY_COLORS: Record<Rarity, string> = {
   'Common': '#9ca3af',
@@ -25,7 +25,7 @@ export const RARITY_COLORS: Record<Rarity, string> = {
 } as const;
 
 /**
- * Lista ordenada de rarezas disponibles
+ * Ordered list of available rarities
  */
 export const RARITY_LIST: readonly Rarity[] = [
   'Common',

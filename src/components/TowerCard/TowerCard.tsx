@@ -87,26 +87,26 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
         <div className="tower-stats-grid">
           <StatBox
             emoji={TOWER_STAT_EMOJIS.DAMAGE}
-            label="Daño"
+            label="Damage"
             value={formatDamage(tower.damage)}
             type="damage"
           />
           <StatBox
             emoji={TOWER_STAT_EMOJIS.SPEED}
-            label="Velocidad"
+            label="Attack Rate"
             value={formatAttackSpeed(tower.attack_speed)}
             type="attackrate"
           />
           <StatBox
             emoji={TOWER_STAT_EMOJIS.RANGE}
-            label="Rango"
+            label="Attack Range"
             value={formatRange(tower.range)}
             type="range"
           />
           {tower.crit_chance && (
             <StatBox
               emoji={TOWER_STAT_EMOJIS.CRIT}
-              label="Crítico"
+              label="Crit Chance"
               value={formatCritChance(tower.crit_chance)}
               type="crit"
             />
@@ -123,7 +123,7 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
 
         {tower.upgrades && tower.upgrades.length > 0 && (
           <div className="tower-upgrades">
-            <div className="upgrades-title">{TOWER_STAT_EMOJIS.UPGRADES} Mejoras</div>
+            <div className="upgrades-title">{TOWER_STAT_EMOJIS.UPGRADES} Upgrades</div>
             <div className="upgrades-list">
               {tower.upgrades.map((upgrade, index) => (
                 <div key={index} className="upgrade-item">
@@ -147,7 +147,7 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
               onClick={() => setCommentaryOpen(!commentaryOpen)}
               aria-expanded={commentaryOpen}
             >
-              {TOWER_STAT_EMOJIS.COMMENTARY} {commentaryOpen ? 'Ocultar' : 'Ver'} Comentario
+              {TOWER_STAT_EMOJIS.COMMENTARY} {commentaryOpen ? 'Hide' : 'Show'} Commentary
             </button>
             {commentaryOpen && (
               <div className="commentary-content">{tower.commentary}</div>

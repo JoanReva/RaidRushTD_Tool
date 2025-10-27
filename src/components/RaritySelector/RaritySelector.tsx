@@ -11,7 +11,7 @@ interface RaritySelectorProps {
 const RaritySelectorComponent = ({ selectedRarity, onRarityChange }: RaritySelectorProps) => {
   return (
     <div id="global-rarity-selector">
-      <label>Rareza Global:</label>
+      <label>Global Rarity:</label>
       <div className="rarity-buttons">
         {RARITY_LIST.map((rarity) => (
           <button

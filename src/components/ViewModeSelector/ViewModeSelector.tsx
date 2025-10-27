@@ -8,7 +8,7 @@ interface ViewModeSelectorProps {
 }
 
 const VIEW_MODES: { value: ViewMode; label: string }[] = [
-  { value: 'detailed', label: 'Detallado' },
+  { value: 'detailed', label: 'Detailed' },
   { value: 'simple', label: 'Simple' },
   { value: 'minimal', label: 'Minimal' },
 ];
@@ -16,7 +16,7 @@ const VIEW_MODES: { value: ViewMode; label: string }[] = [
 const ViewModeSelectorComponent = ({ selectedMode, onModeChange }: ViewModeSelectorProps) => {
   return (
     <div id="view-mode-selector">
-      <label>Modo de Vista:</label>
+      <label>View Mode:</label>
       <div className="view-mode-buttons">
         {VIEW_MODES.map(({ value, label }) => (
           <button

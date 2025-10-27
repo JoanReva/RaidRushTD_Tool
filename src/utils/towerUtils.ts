@@ -4,9 +4,9 @@ import { RARITY_MULTIPLIERS } from './rarityUtils';
 import { LEVEL_POWER_MULTIPLIER, TOWER_TARGET_EMOJIS } from '../constants';
 
 /**
- * Obtiene información de desbloqueo formateada de una torre
- * @param unlockValue - Información de desbloqueo (objeto UnlockInfo)
- * @returns Objeto con label y value para mostrar en UI
+ * Gets formatted unlock information for a tower
+ * @param unlockValue - Unlock information (UnlockInfo object)
+ * @returns Object with label and value to display in UI
  */
 export const getUnlockInfo = (unlockValue: UnlockInfo | null | undefined): { label: string; value: string } => {
   if (!unlockValue) {
@@ -25,39 +25,39 @@ export const getUnlockInfo = (unlockValue: UnlockInfo | null | undefined): { lab
 };
 
 /**
- * Calcula el poder total de una torre basado en sus estadísticas, rareza y nivel
- * @param tower - Datos de la torre
- * @param rarity - Rareza de la torre
- * @param level - Nivel de la torre
- * @returns Poder calculado redondeado a 1 decimal
+ * Calculates total power of a tower based on its stats, rarity, and level
+ * @param tower - Tower data
+ * @param rarity - Tower rarity
+ * @param level - Tower level
+ * @returns Calculated power rounded to 1 decimal place
  */
 export const calculatePower = (tower: Tower, rarity: Rarity, level: number): number => {
-  // Extraer valor de daño
+  // Extract damage value
   let baseDamage = 0;
   const damage = tower.damage;
   
   if (typeof damage === 'number') {
     baseDamage = damage;
   } else if (damage !== null) {
-    // Priorizar diferentes propiedades del objeto de daño
+    // Prioritize different damage object properties
     baseDamage = damage.value || damage.normal || damage.initial || damage.burst_damage || 0;
   }
 
-  // Extraer velocidad de ataque
+  // Extract attack speed
   const attackSpeed = tower.attack_speed || 1;
 
-  // Extraer rango
+  // Extract range
   let range = 1;
   const towerRange = tower.range;
   
   if (typeof towerRange === 'number') {
     range = towerRange;
   } else if (towerRange !== null) {
-    // Si es un objeto, usar el máximo o grid
+    // If it's an object, use max or grid
     range = towerRange.max || towerRange.grid || towerRange.blast || 1;
   }
 
-  // Extraer probabilidad crítica (decimal: 0.20 = 20%)
+  // Extract critical chance (decimal: 0.20 = 20%)
   const critChance = (tower.crit_chance || 0) * 100;
 
   const rarityMultiplier = RARITY_MULTIPLIERS[rarity];
@@ -70,9 +70,9 @@ export const calculatePower = (tower: Tower, rarity: Rarity, level: number): num
 };
 
 /**
- * Obtiene el emoji y texto correspondiente al tipo de objetivo
- * @param targets - Array de strings con los objetivos
- * @returns Objeto con emoji y texto formateado
+ * Gets the emoji and text corresponding to the target type
+ * @param targets - Array of strings with targets
+ * @returns Object with emoji and formatted text
  */
 export const getTargetInfo = (targets: string[]): { emoji: string; text: string } => {
   const targetsStr = targets.join(', ');
@@ -91,9 +91,9 @@ export const getTargetInfo = (targets: string[]): { emoji: string; text: string 
 };
 
 /**
- * Formatea el valor de daño para mostrar en UI
- * @param damage - Valor de daño (número o objeto DamageInfo)
- * @returns String formateado para mostrar
+ * Formats damage value for UI display
+ * @param damage - Damage value (number or DamageInfo object)
+ * @returns Formatted string for display
  */
 export const formatDamage = (damage: Tower['damage']): string => {
   if (!damage) {
@@ -104,7 +104,7 @@ export const formatDamage = (damage: Tower['damage']): string => {
     return damage.toString();
   }
   
-  // Si tiene múltiples tipos de daño
+  // If it has multiple damage types
   if (damage.normal !== undefined && damage.third_shot !== undefined) {
     return `${damage.normal} / ${damage.third_shot}`;
   }
@@ -118,7 +118,7 @@ export const formatDamage = (damage: Tower['damage']): string => {
     return damage.type ? `${damage.value} (${damage.type})` : damage.value.toString();
   }
   
-  // Si tiene nota
+  // If it has a note
   if (damage.note) {
     return damage.note;
   }
@@ -127,9 +127,9 @@ export const formatDamage = (damage: Tower['damage']): string => {
 };
 
 /**
- * Formatea el valor de rango para mostrar en UI
- * @param range - Valor de rango (número o objeto RangeInfo)
- * @returns String formateado para mostrar
+ * Formats range value for UI display
+ * @param range - Range value (number or RangeInfo object)
+ * @returns Formatted string for display
  */
 export const formatRange = (range: Tower['range']): string => {
   if (!range) {
@@ -154,18 +154,18 @@ export const formatRange = (range: Tower['range']): string => {
 };
 
 /**
- * Formatea el valor de velocidad de ataque para mostrar en UI
- * @param attackSpeed - Valor de velocidad de ataque
- * @returns String formateado para mostrar
+ * Formats attack speed value for UI display
+ * @param attackSpeed - Attack speed value
+ * @returns Formatted string for display
  */
 export const formatAttackSpeed = (attackSpeed: Tower['attack_speed']): string => {
   return attackSpeed?.toString() || 'N/A';
 };
 
 /**
- * Formatea el valor de probabilidad crítica para mostrar en UI
- * @param critChance - Valor de probabilidad crítica (decimal: 0.20 = 20%)
- * @returns String formateado para mostrar (ej: "20%")
+ * Formats critical chance value for UI display
+ * @param critChance - Critical chance value (decimal: 0.20 = 20%)
+ * @returns Formatted string for display (e.g., "20%")
  */
 export const formatCritChance = (critChance: Tower['crit_chance']): string => {
   if (!critChance) {

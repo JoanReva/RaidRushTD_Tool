@@ -41,7 +41,7 @@ function App() {
         <div className="header-content">
           <div className="header-text">
             <h1 className="title">🏰 Raid Rush TD - Tower Guide</h1>
-            <p className="subtitle">Comparador y analizador de torres</p>
+            <p className="subtitle">Tower Comparison and Analyzer</p>
           </div>
         </div>
         <div id="controls-panel">
@@ -53,7 +53,7 @@ function App() {
       <main id="towers-container">{towerCards}</main>
 
       <footer>
-        <p>© 2025 Raid Rush TD Tool | Herramienta no oficial</p>
+        <p>© 2025 Raid Rush TD Tool | Unofficial Tool</p>
       </footer>
     </div>
   );

@@ -52,6 +52,7 @@ export interface AdditionalStats {
 }
 
 export interface Tower {
+  id: number;
   name: string;
   unlock_at: UnlockInfo;
   targets: string[];

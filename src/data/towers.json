@@ -1,89 +1,14 @@
 {
   "towers": [
     {
-      "name": "Vulcan Tower",
-      "unlock_at": {
-        "chapter": 1
-      },
-      "targets": ["Ground", "Air"],
-      "type": "Swift",
-      "range": 0.9,
-      "attack_speed": 0.2,
-      "damage": {
-        "value": 30,
-        "type": "single"
-      },
-      "crit_chance": 0.20,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "***",
-          "description": "+20% Crit Chance, +39% Max Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+40% Crit Chance, +20% Max Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "Una de las torres más populares. Completamente mejorada, tiene 80% de probabilidad de crítico, lo que sinergiza bien con los bonos de daño crítico de torres de Mai y Osiris. La única caída real es el bajo rango inicial y el hecho de que obtiene una reducción de daño del 20% contra enemigos Vanguard, que puede superarse con la torre de soporte y bonos de héroe.",
-      "image": "/towers/Vulcan_Tower.svg"
-    },
-    {
-      "name": "Tesla Tower",
-      "unlock_at": {
-        "chapter": 1
-      },
-      "targets": ["Ground", "Air"],
-      "type": "Elemental",
-      "range": 1,
-      "attack_speed": 0.57,
-      "damage": {
-        "value": 22.9,
-        "type": "area"
-      },
-      "crit_chance": 0.02,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Area Damage"
-        },
-        {
-          "level": "***",
-          "description": "+2% Crit Chance, +25% Max Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+4% Crit Chance, +20% Max Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "Esta es una torre muy popular, pero siento que su daño escala pobremente al final del juego cuando incluso las turbas basura son súper resistentes. Ataca rápido, un poco más de dos veces por segundo, pero incluso en Legendary+ solo comienza en 265.5 de daño, por lo que en niveles altos necesitas filas enteras de estas con cambios de sentido que obligan a las turbas a pasar por ellas dos veces. En niveles bajos antes de que la inflación de HP se apodere de las turbas enemigas, esta cosa es mágica. Debido al efecto de área circular, estas funcionan mejor dentro de bucles o dentro de esquinas. La opinión permanece igual. Alcanza su pico de utilidad a mitad del juego y luego cae por un precipicio, como la Torre Sniper.",
-      "image": "/towers/Tesla_Tower.svg"
-    },
-    {
+      "id": 1,
       "name": "Mortar Tower",
       "unlock_at": {
         "chapter": 1
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Vanguard",
       "range": {
         "min": 1,
@@ -94,7 +19,7 @@
         "value": 87.5,
         "type": "area"
       },
-      "crit_chance": 0.10,
+      "crit_chance": 0.1,
       "upgrades": [
         {
           "level": "**",
@@ -121,11 +46,56 @@
       "image": "/towers/Mortar_Tower.svg"
     },
     {
+      "id": 2,
+      "name": "Cannon Tower",
+      "unlock_at": {
+        "chapter": 1
+      },
+      "targets": [
+        "Ground"
+      ],
+      "type": "Vanguard",
+      "range": 1,
+      "attack_speed": 1.25,
+      "damage": {
+        "value": 156.3,
+        "type": "single"
+      },
+      "crit_chance": 0.1,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "***",
+          "description": "+2% Crit Chance, +30% Max Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+2% Crit Chance, +23% Max Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "No hay mucho que decir. Cumple su propósito, pero reemplaza con la torre de evento especial Double Cannon lo antes posible para obtener una gran ganancia en daño. Todavía reemplazada por el Double Cannon, pero, como el Bowling Tower, una opción es duplicar con el Double Cannon para que tengas dos torres base con las que puedas alinear tu camino.",
+      "image": "/towers/Cannon_Tower.svg"
+    },
+    {
+      "id": 3,
       "name": "Garrison Tower",
       "unlock_at": {
         "chapter": 1
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Swift",
       "range": null,
       "attack_speed": 1.33,
@@ -165,50 +135,14 @@
       "image": "/towers/Garrison_Tower.svg"
     },
     {
-      "name": "Cannon Tower",
-      "unlock_at": {
-        "chapter": 1
-      },
-      "targets": ["Ground"],
-      "type": "Vanguard",
-      "range": 1,
-      "attack_speed": 1.25,
-      "damage": {
-        "value": 156.3,
-        "type": "single"
-      },
-      "crit_chance": 0.10,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "***",
-          "description": "+2% Crit Chance, +30% Max Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+2% Crit Chance, +23% Max Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "No hay mucho que decir. Cumple su propósito, pero reemplaza con la torre de evento especial Double Cannon lo antes posible para obtener una gran ganancia en daño. Todavía reemplazada por el Double Cannon, pero, como el Bowling Tower, una opción es duplicar con el Double Cannon para que tengas dos torres base con las que puedas alinear tu camino.",
-      "image": "/towers/Cannon_Tower.svg"
-    },
-    {
+      "id": 4,
       "name": "Spike (Trap)",
       "unlock_at": {
         "chapter": 1
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Swift",
       "range": 0,
       "attack_speed": 0.33,
@@ -243,11 +177,100 @@
       "image": "/towers/Spike_Trap.svg"
     },
     {
+      "id": 5,
+      "name": "Vulcan Tower",
+      "unlock_at": {
+        "chapter": 1
+      },
+      "targets": [
+        "Ground",
+        "Air"
+      ],
+      "type": "Swift",
+      "range": 0.9,
+      "attack_speed": 0.2,
+      "damage": {
+        "value": 30,
+        "type": "single"
+      },
+      "crit_chance": 0.2,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "***",
+          "description": "+20% Crit Chance, +39% Max Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+40% Crit Chance, +20% Max Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "Una de las torres más populares. Completamente mejorada, tiene 80% de probabilidad de crítico, lo que sinergiza bien con los bonos de daño crítico de torres de Mai y Osiris. La única caída real es el bajo rango inicial y el hecho de que obtiene una reducción de daño del 20% contra enemigos Vanguard, que puede superarse con la torre de soporte y bonos de héroe.",
+      "image": "/towers/Vulcan_Tower.svg"
+    },
+    {
+      "id": 6,
+      "name": "Tesla Tower",
+      "unlock_at": {
+        "chapter": 1
+      },
+      "targets": [
+        "Ground",
+        "Air"
+      ],
+      "type": "Elemental",
+      "range": 1,
+      "attack_speed": 0.57,
+      "damage": {
+        "value": 22.9,
+        "type": "area"
+      },
+      "crit_chance": 0.02,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Area Damage"
+        },
+        {
+          "level": "***",
+          "description": "+2% Crit Chance, +25% Max Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+4% Crit Chance, +20% Max Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "Esta es una torre muy popular, pero siento que su daño escala pobremente al final del juego cuando incluso las turbas basura son súper resistentes. Ataca rápido, un poco más de dos veces por segundo, pero incluso en Legendary+ solo comienza en 265.5 de daño, por lo que en niveles altos necesitas filas enteras de estas con cambios de sentido que obligan a las turbas a pasar por ellas dos veces. En niveles bajos antes de que la inflación de HP se apodere de las turbas enemigas, esta cosa es mágica. Debido al efecto de área circular, estas funcionan mejor dentro de bucles o dentro de esquinas. La opinión permanece igual. Alcanza su pico de utilidad a mitad del juego y luego cae por un precipicio, como la Torre Sniper.",
+      "image": "/towers/Tesla_Tower.svg"
+    },
+    {
+      "id": 7,
       "name": "Sky Guard Tower",
       "unlock_at": {
         "chapter": 3
       },
-      "targets": ["Air"],
+      "targets": [
+        "Air"
+      ],
       "type": "Vanguard",
       "range": 1.25,
       "attack_speed": 1.11,
@@ -255,7 +278,7 @@
         "value": 203.3,
         "type": "single"
       },
-      "crit_chance": 0.10,
+      "crit_chance": 0.1,
       "upgrades": [
         {
           "level": "**",
@@ -282,11 +305,14 @@
       "image": "/towers/Sky_Guard_Tower.svg"
     },
     {
+      "id": 8,
       "name": "Frost Gun Tower",
       "unlock_at": {
         "chapter": 5
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Elemental",
       "range": 1.5,
       "attack_speed": 1,
@@ -324,11 +350,15 @@
       "image": "/towers/Frost_Gun_Tower.svg"
     },
     {
+      "id": 9,
       "name": "Laser Tower",
       "unlock_at": {
         "chapter": 7
       },
-      "targets": ["Ground", "Air"],
+      "targets": [
+        "Ground",
+        "Air"
+      ],
       "type": "Elemental",
       "range": 1.1,
       "attack_speed": 0.1,
@@ -365,11 +395,14 @@
       "image": "/towers/Laser_Tower.svg"
     },
     {
+      "id": 10,
       "name": "Bowling Tower",
       "unlock_at": {
         "chapter": 9
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Utility",
       "range": "infinite",
       "attack_speed": 7.69,
@@ -407,11 +440,14 @@
       "image": "/towers/Bowling_Tower.svg"
     },
     {
+      "id": 11,
       "name": "Fireworks (Trap)",
       "unlock_at": {
         "chapter": 10
       },
-      "targets": ["Air"],
+      "targets": [
+        "Air"
+      ],
       "type": "Elemental",
       "range": 0,
       "attack_speed": 1,
@@ -446,11 +482,14 @@
       "image": "/towers/Fireworks_Trap.svg"
     },
     {
+      "id": 12,
       "name": "Wind Blower Tower",
       "unlock_at": {
         "chapter": 12
       },
-      "targets": ["Air"],
+      "targets": [
+        "Air"
+      ],
       "type": "Utility",
       "range": "short",
       "attack_speed": 6.67,
@@ -485,11 +524,15 @@
       "image": "/towers/Wind_Blower_Tower.svg"
     },
     {
+      "id": 13,
       "name": "Drone Launcher Tower",
       "unlock_at": {
         "chapter": 14
       },
-      "targets": ["Ground", "Air"],
+      "targets": [
+        "Ground",
+        "Air"
+      ],
       "type": "Swift",
       "range": null,
       "attack_speed": 1.33,
@@ -529,11 +572,14 @@
       "image": "/towers/Drone_Launcher_Tower.svg"
     },
     {
+      "id": 14,
       "name": "Mine (Trap)",
       "unlock_at": {
         "chapter": 17
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Vanguard",
       "range": 0,
       "attack_speed": 1,
@@ -571,6 +617,7 @@
       "image": "/towers/Mine_Trap.svg"
     },
     {
+      "id": 15,
       "name": "Support Tower",
       "unlock_at": {
         "chapter": 19
@@ -607,11 +654,15 @@
       "image": "/towers/Support_Tower.svg"
     },
     {
+      "id": 16,
       "name": "Inferno Tower",
       "unlock_at": {
         "chapter": 21
       },
-      "targets": ["Ground", "Air"],
+      "targets": [
+        "Ground",
+        "Air"
+      ],
       "type": "Elemental",
       "range": 1.25,
       "attack_speed": 1.43,
@@ -649,11 +700,14 @@
       "image": "/towers/Inferno_Tower.svg"
     },
     {
+      "id": 17,
       "name": "Boomerang Tower",
       "unlock_at": {
         "chapter": 23
       },
-      "targets": ["Air"],
+      "targets": [
+        "Air"
+      ],
       "type": "Swift",
       "range": "infinite",
       "attack_speed": 1.67,
@@ -661,7 +715,7 @@
         "value": 133.3,
         "type": "area_linear"
       },
-      "crit_chance": 0.20,
+      "crit_chance": 0.2,
       "upgrades": [
         {
           "level": "**",
@@ -688,11 +742,14 @@
       "image": "/towers/Boomerang_Tower.svg"
     },
     {
+      "id": 18,
       "name": "Disco Ball Tower",
       "unlock_at": {
         "chapter": 25
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Utility",
       "range": 1.25,
       "attack_speed": 0.25,
@@ -724,11 +781,14 @@
       "image": "/towers/Disco_Ball_Tower.svg"
     },
     {
+      "id": 19,
       "name": "Sniper Tower",
       "unlock_at": {
         "chapter": 27
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Vanguard",
       "range": {
         "min": 1.5,
@@ -766,11 +826,14 @@
       "image": "/towers/Sniper_Tower.svg"
     },
     {
+      "id": 20,
       "name": "Tornado Tower",
       "unlock_at": {
         "chapter": 30
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Elemental",
       "range": "short",
       "attack_speed": 6.25,
@@ -809,11 +872,14 @@
       "image": "/towers/Tornado_Tower.svg"
     },
     {
+      "id": 21,
       "name": "Aeroblast Tower",
       "unlock_at": {
         "chapter": 33
       },
-      "targets": ["Air"],
+      "targets": [
+        "Air"
+      ],
       "type": "Vanguard",
       "range": 1.5,
       "attack_speed": 1.25,
@@ -821,7 +887,7 @@
         "value": 125,
         "type": "area"
       },
-      "crit_chance": 0.10,
+      "crit_chance": 0.1,
       "upgrades": [
         {
           "level": "**",
@@ -848,256 +914,14 @@
       "image": "/towers/Aeroblast_Tower.svg"
     },
     {
-      "name": "Ballista Tower",
-      "unlock_at": {
-        "event": "Egyptian Odyssey"
-      },
-      "targets": ["Ground"],
-      "type": "Vanguard",
-      "range": "infinite",
-      "attack_speed": 5,
-      "damage": {
-        "value": 475,
-        "type": "area_linear"
-      },
-      "crit_chance": 0.05,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Area Damage"
-        },
-        {
-          "level": "***",
-          "description": "+5% Crit Chance"
-        },
-        {
-          "level": "****",
-          "description": "+X Area Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+10% Crit Chance"
-        },
-        {
-          "level": "******",
-          "description": "+X Area Damage"
-        }
-      ],
-      "commentary": "Desbloqueada al clasificar alto en los eventos especiales de fin de semana. Esta es una torre tremendamente poderosa. Hace daño masivo a todos los objetivos terrestres en línea tan lejos como puedas construir un camino recto. Dispara muy lentamente y se beneficia enormemente del bono de héroe de -30% de velocidad de ataque de torres Vanguard. Funciona mejor cuando tienes al menos un camino de línea recta de tres cuadrados. Ballista sigue siendo muy fuerte, pero como torre de efecto de área anti-tierra, sigue siendo segunda después del Mortar debido a la dificultad y aleatoriedad de configurar un buen camino para Ballista. Tiene un techo de efectividad posible más alto que el mortar, pero un piso más bajo. Esta torre puede rotarse en el juego seleccionándola y presionando el botón de rotación.",
-      "image": "/towers/Ballista_Tower.svg"
-    },
-    {
-      "name": "Multi-barrel Tower",
-      "unlock_at": {
-        "event": "Atlantis Rising"
-      },
-      "targets": ["Ground", "Air"],
-      "type": "Swift",
-      "range": 0.9,
-      "attack_speed": 0.67,
-      "damage": {
-        "value": 93.3,
-        "type": "multi_target"
-      },
-      "crit_chance": 0.50,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "***",
-          "description": "+25% Crit Chance, +39% Max Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+25% Crit Chance, +20% Max Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "Esta torre comienza con dos armas y puede enfrentar todos los objetivos a su alrededor. Cada arma parece tener una porción de pastel alrededor de la torre en la que puede enfrentar objetivos. Hay una mejora visible en la segunda y cuarta mejora en el juego no mostrada en el texto de mejora donde la torre obtiene dos armas más para un total de cuatro en el nivel 3 y seis en el nivel 5, por lo que la efectividad de la mejora en el juego en esta torre es mucho mayor. Otro factor importante aquí es que esta torre tiene 100% de Probabilidad de Crítico en el nivel 5, lo que significa que un mazo liderado por Mai con bonos de héroe para daño crítico en conjunto con la torre multi-barrel y el Vulcan puede ser muy fuerte. Esta torre es muy, muy fuerte, pero el daño siempre es menos de lo anunciado. El Multibarrel todavía es ampliamente considerado como la mejor torre de fin de juego.",
-      "image": "/towers/Multi_barrel_Tower.svg"
-    },
-    {
-      "name": "Double Cannon Tower",
-      "unlock_at": {
-        "event": "Special Events"
-      },
-      "targets": ["Ground"],
-      "type": "Vanguard",
-      "range": 1,
-      "attack_speed": 1,
-      "damage": {
-        "normal": 160,
-        "third_shot": 400,
-        "type": "burst"
-      },
-      "crit_chance": 0,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "***",
-          "description": "+30% Max Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+23% Max Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "La característica especial de esta torre es que dispara ambos cañones cada tercer disparo y hace 2.5x de daño en ese disparo. También hace más daño plano en disparos normales que la torre de cañón. Creo que esta torre no puede hacer golpes críticos. Por supuesto, el daño garantizado de 2.5x cada tercer disparo es mejor que la probabilidad del 10% de hacer un golpe crítico que obtiene la torre de cañón. El daño de 2.5x en el tercer disparo solo se aplica al tercer disparo consecutivo en el mismo objetivo. Double Cannon fue demasiado buena para ser verdad. Fue golpeada dos veces por el nerf. Reducción directa de daño en las estadísticas. El Double Cannon Good de estado actual es menos poderoso que el Double Cannon Common antiguo. Sin embargo, sigue siendo mejor que el Cannon.",
-      "image": "/towers/Double_Cannon_Tower.svg"
-    },
-    {
-      "name": "Gambler Tower",
-      "unlock_at": {
-        "event": "Lucky Ball"
-      },
-      "targets": ["Ground", "Air"],
-      "type": "Swift",
-      "range": 1,
-      "attack_speed": 0.67,
-      "damage": {
-        "value": 93.3,
-        "type": "single"
-      },
-      "crit_chance": 0.15,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "***",
-          "description": "+20% Attack Range"
-        },
-        {
-          "level": "****",
-          "description": "+X Ranged Damage"
-        },
-        {
-          "level": "*****",
-          "description": "+17% Attack Range"
-        },
-        {
-          "level": "******",
-          "description": "+X Ranged Damage"
-        }
-      ],
-      "commentary": "Oímos que a los jugadores les gustan las cajas de botín. Así que hicimos una torre que es una caja de botín que tienes que obtener de cajas de botín. Cuando colocas o mueves esta torre, el dado rueda y obtienes los efectos correspondientes según la tirada. Cada cuadrícula en el mapa parece tener un valor de 1-6 asignado. Cualquier torre Gambler colocada en ese cuadrado 'tirará' un valor, pero ese valor está realmente fijado según el valor asignado al cuadrado de la cuadrícula. Roll 1: -50% Damage, -50% Attack Speed, -100% Critical Damage. Roll 2: -25% Damage, -25% Attack Speed, -50% Critical Damage. Roll 3: No Change. Roll 4: +15% Damage, +15% Attack Speed, +30% Critical Damage. Roll 5: +30% Damage, +30% Attack Speed, +60% Crit Damage. Roll 6: +50% Damage, +50% Attack Speed, +100% Critical Damage.",
-      "image": "/towers/Gambler_Tower.svg"
-    },
-    {
-      "name": "Fury Tower",
-      "unlock_at": {
-        "event": "Endless Battle"
-      },
-      "targets": ["Ground", "Air"],
-      "type": "Swift",
-      "range": 1,
-      "attack_speed": 0.5,
-      "damage": {
-        "value": 82.5,
-        "burst_damage": 165,
-        "type": "burst"
-      },
-      "additional_stats": {
-        "burst_trigger": 40
-      },
-      "crit_chance": 0.20,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+X Damage (for 3 missiles), -8 Burst Trigger"
-        },
-        {
-          "level": "***",
-          "description": "+25% Range, +20% Crit Chance"
-        },
-        {
-          "level": "****",
-          "description": "+X Damage (for 3 missiles), -4 Burst Trigger"
-        },
-        {
-          "level": "*****",
-          "description": "Data missing"
-        },
-        {
-          "level": "******",
-          "description": "Data missing"
-        }
-      ],
-      "commentary": "No estoy realmente seguro de qué pensar de esta todavía. Dispara ráfagas de tres misiles desde dos lanzadores, uno a la izquierda y uno a la derecha. Los lanzadores izquierdo y derecho pueden apuntar a dos enemigos diferentes y parecen preferir un objetivo que entra al rango de la torre y uno que sale. Cada 40 ataques, ambos lanzadores disparan y hacen daño de área en lugar de daño de objetivo único. Las mejoras en partida pueden reducir este tiempo de recarga.",
-      "image": "/towers/Fury_Tower.svg"
-    },
-    {
-      "name": "Hook Tower",
-      "unlock_at": {
-        "event": "Special Events"
-      },
-      "targets": ["Ground"],
-      "type": "Utility",
-      "range": 1,
-      "attack_speed": 0.2,
-      "damage": {
-        "value": 10,
-        "type": "single"
-      },
-      "additional_stats": {
-        "hook_length": 0.75,
-        "slow_effect": 0.10,
-        "hook_count": 2,
-        "note": "Slow Effect formerly 0.40 - NERFED"
-      },
-      "crit_chance": null,
-      "upgrades": [
-        {
-          "level": "**",
-          "description": "+33% Hook Length"
-        },
-        {
-          "level": "***",
-          "description": "+2 Hook Count"
-        },
-        {
-          "level": "****",
-          "description": "+25% Hook Length"
-        },
-        {
-          "level": "*****",
-          "description": "+2 Hook Count"
-        },
-        {
-          "level": "******",
-          "description": "+X Damage, +20% Hook Length"
-        }
-      ],
-      "commentary": "Dispara varios ganchos que se agarran y ralentizan a los enemigos terrestres. Como la torre Bowling, hace una cantidad muy menor de daño por sí misma. Se dispara a un cuadrado y puede rotarse para apuntar en cualquiera de los cuatro lados. Esta torre es la torre de ralentización más efectiva en el juego, golpeando un máximo de 12 enemigos para un efecto de ralentización masivo y también afectando a los jefes por igual. La Hook Tower fue golpeada duramente por el nerf. La ralentización base fue nerfeada duramente y ahora está más vinculada a la rareza de la torre, y el número de ganchos se ha reducido. Solías poder obtener un efecto de ralentización monstruoso sin mejorarla más allá de Common, lo que era muy poderoso, pero ahora necesitarías invertir muchos tokens de evento. Esta torre puede rotarse en el juego.",
-      "image": "/towers/Hook_Tower.svg"
-    },
-    {
+      "id": 101,
       "name": "Mecha Nest Tower",
       "unlock_at": {
         "event": "Monthly Season Pass"
       },
-      "targets": ["Ground"],
+      "targets": [
+        "Ground"
+      ],
       "type": "Elemental",
       "range": {
         "grid": 3,
@@ -1139,11 +963,281 @@
       "image": "/towers/Mecha_Nest_Tower.svg"
     },
     {
+      "id": 102,
+      "name": "Fury Tower",
+      "unlock_at": {
+        "event": "Endless Battle"
+      },
+      "targets": [
+        "Ground",
+        "Air"
+      ],
+      "type": "Swift",
+      "range": 1,
+      "attack_speed": 0.5,
+      "damage": {
+        "value": 82.5,
+        "burst_damage": 165,
+        "type": "burst"
+      },
+      "additional_stats": {
+        "burst_trigger": 40
+      },
+      "crit_chance": 0.2,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Damage (for 3 missiles), -8 Burst Trigger"
+        },
+        {
+          "level": "***",
+          "description": "+25% Range, +20% Crit Chance"
+        },
+        {
+          "level": "****",
+          "description": "+X Damage (for 3 missiles), -4 Burst Trigger"
+        },
+        {
+          "level": "*****",
+          "description": "Data missing"
+        },
+        {
+          "level": "******",
+          "description": "Data missing"
+        }
+      ],
+      "commentary": "No estoy realmente seguro de qué pensar de esta todavía. Dispara ráfagas de tres misiles desde dos lanzadores, uno a la izquierda y uno a la derecha. Los lanzadores izquierdo y derecho pueden apuntar a dos enemigos diferentes y parecen preferir un objetivo que entra al rango de la torre y uno que sale. Cada 40 ataques, ambos lanzadores disparan y hacen daño de área en lugar de daño de objetivo único. Las mejoras en partida pueden reducir este tiempo de recarga.",
+      "image": "/towers/Fury_Tower.svg"
+    },
+    {
+      "id": 103,
+      "name": "Hook Tower",
+      "unlock_at": {
+        "event": "Special Events"
+      },
+      "targets": [
+        "Ground"
+      ],
+      "type": "Utility",
+      "range": 1,
+      "attack_speed": 0.2,
+      "damage": {
+        "value": 10,
+        "type": "single"
+      },
+      "additional_stats": {
+        "hook_length": 0.75,
+        "slow_effect": 0.1,
+        "hook_count": 2,
+        "note": "Slow Effect formerly 0.40 - NERFED"
+      },
+      "crit_chance": null,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+33% Hook Length"
+        },
+        {
+          "level": "***",
+          "description": "+2 Hook Count"
+        },
+        {
+          "level": "****",
+          "description": "+25% Hook Length"
+        },
+        {
+          "level": "*****",
+          "description": "+2 Hook Count"
+        },
+        {
+          "level": "******",
+          "description": "+X Damage, +20% Hook Length"
+        }
+      ],
+      "commentary": "Dispara varios ganchos que se agarran y ralentizan a los enemigos terrestres. Como la torre Bowling, hace una cantidad muy menor de daño por sí misma. Se dispara a un cuadrado y puede rotarse para apuntar en cualquiera de los cuatro lados. Esta torre es la torre de ralentización más efectiva en el juego, golpeando un máximo de 12 enemigos para un efecto de ralentización masivo y también afectando a los jefes por igual. La Hook Tower fue golpeada duramente por el nerf. La ralentización base fue nerfeada duramente y ahora está más vinculada a la rareza de la torre, y el número de ganchos se ha reducido. Solías poder obtener un efecto de ralentización monstruoso sin mejorarla más allá de Common, lo que era muy poderoso, pero ahora necesitarías invertir muchos tokens de evento. Esta torre puede rotarse en el juego.",
+      "image": "/towers/Hook_Tower.svg"
+    },
+    {
+      "id": 104,
+      "name": "Multi-barrel Tower",
+      "unlock_at": {
+        "event": "Atlantis Rising"
+      },
+      "targets": [
+        "Ground",
+        "Air"
+      ],
+      "type": "Swift",
+      "range": 0.9,
+      "attack_speed": 0.67,
+      "damage": {
+        "value": 93.3,
+        "type": "multi_target"
+      },
+      "crit_chance": 0.5,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "***",
+          "description": "+25% Crit Chance, +39% Max Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+25% Crit Chance, +20% Max Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "Esta torre comienza con dos armas y puede enfrentar todos los objetivos a su alrededor. Cada arma parece tener una porción de pastel alrededor de la torre en la que puede enfrentar objetivos. Hay una mejora visible en la segunda y cuarta mejora en el juego no mostrada en el texto de mejora donde la torre obtiene dos armas más para un total de cuatro en el nivel 3 y seis en el nivel 5, por lo que la efectividad de la mejora en el juego en esta torre es mucho mayor. Otro factor importante aquí es que esta torre tiene 100% de Probabilidad de Crítico en el nivel 5, lo que significa que un mazo liderado por Mai con bonos de héroe para daño crítico en conjunto con la torre multi-barrel y el Vulcan puede ser muy fuerte. Esta torre es muy, muy fuerte, pero el daño siempre es menos de lo anunciado. El Multibarrel todavía es ampliamente considerado como la mejor torre de fin de juego.",
+      "image": "/towers/Multi_barrel_Tower.svg"
+    },
+    {
+      "id": 105,
+      "name": "Ballista Tower",
+      "unlock_at": {
+        "event": "Egyptian Odyssey"
+      },
+      "targets": [
+        "Ground"
+      ],
+      "type": "Vanguard",
+      "range": "infinite",
+      "attack_speed": 5,
+      "damage": {
+        "value": 475,
+        "type": "area_linear"
+      },
+      "crit_chance": 0.05,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Area Damage"
+        },
+        {
+          "level": "***",
+          "description": "+5% Crit Chance"
+        },
+        {
+          "level": "****",
+          "description": "+X Area Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+10% Crit Chance"
+        },
+        {
+          "level": "******",
+          "description": "+X Area Damage"
+        }
+      ],
+      "commentary": "Desbloqueada al clasificar alto en los eventos especiales de fin de semana. Esta es una torre tremendamente poderosa. Hace daño masivo a todos los objetivos terrestres en línea tan lejos como puedas construir un camino recto. Dispara muy lentamente y se beneficia enormemente del bono de héroe de -30% de velocidad de ataque de torres Vanguard. Funciona mejor cuando tienes al menos un camino de línea recta de tres cuadrados. Ballista sigue siendo muy fuerte, pero como torre de efecto de área anti-tierra, sigue siendo segunda después del Mortar debido a la dificultad y aleatoriedad de configurar un buen camino para Ballista. Tiene un techo de efectividad posible más alto que el mortar, pero un piso más bajo. Esta torre puede rotarse en el juego seleccionándola y presionando el botón de rotación.",
+      "image": "/towers/Ballista_Tower.svg"
+    },
+    {
+      "id": 106,
+      "name": "Double Cannon Tower",
+      "unlock_at": {
+        "event": "Special Events"
+      },
+      "targets": [
+        "Ground"
+      ],
+      "type": "Vanguard",
+      "range": 1,
+      "attack_speed": 1,
+      "damage": {
+        "normal": 160,
+        "third_shot": 400,
+        "type": "burst"
+      },
+      "crit_chance": 0,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "***",
+          "description": "+30% Max Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+23% Max Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "La característica especial de esta torre es que dispara ambos cañones cada tercer disparo y hace 2.5x de daño en ese disparo. También hace más daño plano en disparos normales que la torre de cañón. Creo que esta torre no puede hacer golpes críticos. Por supuesto, el daño garantizado de 2.5x cada tercer disparo es mejor que la probabilidad del 10% de hacer un golpe crítico que obtiene la torre de cañón. El daño de 2.5x en el tercer disparo solo se aplica al tercer disparo consecutivo en el mismo objetivo. Double Cannon fue demasiado buena para ser verdad. Fue golpeada dos veces por el nerf. Reducción directa de daño en las estadísticas. El Double Cannon Good de estado actual es menos poderoso que el Double Cannon Common antiguo. Sin embargo, sigue siendo mejor que el Cannon.",
+      "image": "/towers/Double_Cannon_Tower.svg"
+    },
+    {
+      "id": 107,
+      "name": "Gambler Tower",
+      "unlock_at": {
+        "event": "Lucky Ball"
+      },
+      "targets": [
+        "Ground",
+        "Air"
+      ],
+      "type": "Swift",
+      "range": 1,
+      "attack_speed": 0.67,
+      "damage": {
+        "value": 93.3,
+        "type": "single"
+      },
+      "crit_chance": 0.15,
+      "upgrades": [
+        {
+          "level": "**",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "***",
+          "description": "+20% Attack Range"
+        },
+        {
+          "level": "****",
+          "description": "+X Ranged Damage"
+        },
+        {
+          "level": "*****",
+          "description": "+17% Attack Range"
+        },
+        {
+          "level": "******",
+          "description": "+X Ranged Damage"
+        }
+      ],
+      "commentary": "Oímos que a los jugadores les gustan las cajas de botín. Así que hicimos una torre que es una caja de botín que tienes que obtener de cajas de botín. Cuando colocas o mueves esta torre, el dado rueda y obtienes los efectos correspondientes según la tirada. Cada cuadrícula en el mapa parece tener un valor de 1-6 asignado. Cualquier torre Gambler colocada en ese cuadrado 'tirará' un valor, pero ese valor está realmente fijado según el valor asignado al cuadrado de la cuadrícula. Roll 1: -50% Damage, -50% Attack Speed, -100% Critical Damage. Roll 2: -25% Damage, -25% Attack Speed, -50% Critical Damage. Roll 3: No Change. Roll 4: +15% Damage, +15% Attack Speed, +30% Critical Damage. Roll 5: +30% Damage, +30% Attack Speed, +60% Crit Damage. Roll 6: +50% Damage, +50% Attack Speed, +100% Critical Damage.",
+      "image": "/towers/Gambler_Tower.svg"
+    },
+    {
+      "id": 108,
       "name": "T-800 Tower",
       "unlock_at": {
         "event": "Terminator Collaboration (Unavailable)"
       },
-      "targets": ["Ground", "Air"],
+      "targets": [
+        "Ground",
+        "Air"
+      ],
       "type": "Swift",
       "range": 0.9,
       "attack_speed": 0.35,
@@ -1155,7 +1249,7 @@
         "rage_timer": 15,
         "rage_boost": 0.25
       },
-      "crit_chance": 0.20,
+      "crit_chance": 0.2,
       "upgrades": [
         {
           "level": "**",

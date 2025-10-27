@@ -17,14 +17,14 @@ export const LevelDisplay = memo(({ level, onIncrement, onDecrement }: LevelDisp
         <button 
           className="level-btn level-btn-down" 
           onClick={onDecrement}
-          aria-label="Disminuir nivel"
+          aria-label="Decrease level"
         >
           ▼
         </button>
         <button 
           className="level-btn level-btn-up" 
           onClick={onIncrement}
-          aria-label="Aumentar nivel"
+          aria-label="Increase level"
         >
           ▲
         </button>
