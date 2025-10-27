@@ -1,6 +1,14 @@
 import { useState, useMemo, memo } from 'react';
 import type { Tower, Rarity, ViewMode } from '../../types/tower';
-import { calculatePower, getTargetInfo, getUnlockInfo } from '../../utils/towerUtils';
+import { 
+  calculatePower, 
+  getTargetInfo, 
+  getUnlockInfo,
+  formatDamage,
+  formatRange,
+  formatAttackSpeed,
+  formatCritChance
+} from '../../utils/towerUtils';
 import { useTowerLevel } from '../../hooks';
 import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS } from '../../constants';
 import { StatBox } from './StatBox';
@@ -80,26 +88,26 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
           <StatBox
             emoji={TOWER_STAT_EMOJIS.DAMAGE}
             label="Daño"
-            value={tower.damage}
+            value={formatDamage(tower.damage)}
             type="damage"
           />
           <StatBox
             emoji={TOWER_STAT_EMOJIS.SPEED}
             label="Velocidad"
-            value={tower.attack_speed}
+            value={formatAttackSpeed(tower.attack_speed)}
             type="attackrate"
           />
           <StatBox
             emoji={TOWER_STAT_EMOJIS.RANGE}
             label="Rango"
-            value={tower.range}
+            value={formatRange(tower.range)}
             type="range"
           />
           {tower.crit_chance && (
             <StatBox
               emoji={TOWER_STAT_EMOJIS.CRIT}
               label="Crítico"
-              value={tower.crit_chance}
+              value={formatCritChance(tower.crit_chance)}
               type="crit"
             />
           )}
