@@ -7,13 +7,16 @@ import {
   formatDamage,
   formatRange,
   formatAttackSpeed,
-  formatCritChance
-} from '../../utils/towerUtils';
+  formatCritChance,
+  highlightNumericValues,
+  formatUpgradeLevel
+} from '../../utils';
 import { useTowerLevel } from '../../hooks';
 import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS } from '../../constants';
 import { StatBox } from './StatBox';
 import { PowerDisplay } from './PowerDisplay';
 import { LevelDisplay } from './LevelDisplay';
+import { MergeDisplay } from './MergeDisplay';
 import './TowerCard.css';
 
 interface TowerCardProps {
@@ -44,6 +47,12 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
   const typeIcon = useMemo(
     () => TOWER_TYPE_ICONS[tower.type] || TOWER_TYPE_ICONS.Vanguard,
     [tower.type]
+  );
+
+  // Filter out merge upgrades for the detailed view
+  const regularUpgrades = useMemo(
+    () => tower.upgrades?.filter(upgrade => upgrade.level !== 'merge') || [],
+    [tower.upgrades]
   );
 
   return (
@@ -121,15 +130,22 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
           layout="horizontal"
         />
 
-        {tower.upgrades && tower.upgrades.length > 0 && (
+        {/* Merge Display - Shows transition to next rarity */}
+        {viewMode === 'detailed' && (
+          <MergeDisplay tower={tower} currentRarity={globalRarity} />
+        )}
+
+        {/* Regular Upgrades - Only show non-merge upgrades */}
+        {viewMode === 'detailed' && regularUpgrades.length > 0 && (
           <div className="tower-upgrades">
             <div className="upgrades-title">{TOWER_STAT_EMOJIS.UPGRADES} Upgrades</div>
             <div className="upgrades-list">
-              {tower.upgrades.map((upgrade, index) => (
+              {regularUpgrades.map((upgrade, index) => (
                 <div key={index} className="upgrade-item">
                   {typeof upgrade === 'object' && upgrade.level && upgrade.description ? (
                     <>
-                      <strong>{upgrade.level}:</strong> {upgrade.description}
+                      {formatUpgradeLevel(upgrade.level)}:{' '}
+                      {highlightNumericValues(upgrade.description, 'upgrade-value')}
                     </>
                   ) : (
                     <>• {String(upgrade)}</>

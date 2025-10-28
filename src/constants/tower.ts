@@ -16,6 +16,7 @@ export const TOWER_STAT_EMOJIS = {
   POWER: '💪',
   LEVEL: '🎖️',
   UPGRADES: '🔧',
+  MERGE: '🔀',
   COMMENTARY: '💬',
 } as const;
 

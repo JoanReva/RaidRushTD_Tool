@@ -7,6 +7,8 @@ export type ViewMode = 'detailed' | 'simple' | 'minimal';
 export interface Upgrade {
   level: string;
   description: string;
+  rarity_from?: string;
+  rarity_to?: string;
 }
 
 export interface UnlockInfo {

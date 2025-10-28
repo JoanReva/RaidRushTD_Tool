@@ -175,3 +175,23 @@ export const formatCritChance = (critChance: Tower['crit_chance']): string => {
   return `${(critChance * 100).toFixed(0)}%`;
 };
 
+/**
+ * Gets the merge upgrade for the current rarity level
+ * @param tower - Tower data
+ * @param currentRarity - Current rarity level
+ * @returns The merge upgrade object or undefined if not available
+ */
+export const getMergeUpgrade = (tower: Tower, currentRarity: Rarity) => {
+  if (!tower.upgrades) {
+    return undefined;
+  }
+
+  // Find the merge upgrade that matches the current rarity transition
+  const mergeUpgrade = tower.upgrades.find(
+    upgrade => 
+      upgrade.level === 'merge' && 
+      upgrade.rarity_from?.toLowerCase() === currentRarity.toLowerCase()
+  );
+
+  return mergeUpgrade;
+};
