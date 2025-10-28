@@ -42,6 +42,7 @@ export interface AdditionalStats {
   stun_duration?: number;
   push_strength?: number;
   ignite_damage?: number;
+  ignite_duration?: number;
   cooldown?: number;
   burst_trigger?: number;
   blast_damage?: number;
@@ -50,6 +51,10 @@ export interface AdditionalStats {
   hook_count?: number;
   rage_timer?: number;
   rage_boost?: number;
+  bonus_damage?: number;
+  bonus_health?: number;
+  bonus_crit_chance?: number;
+  bonus_push_strength?: number;
   note?: string;
 }
 

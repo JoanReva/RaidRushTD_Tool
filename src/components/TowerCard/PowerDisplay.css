@@ -1,8 +1,9 @@
 .power-display {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 48%;
   background: linear-gradient(135deg, var(--power-bg-from) 0%, var(--power-bg-to) 100%);
-  padding: 6px 8px;
-  border-radius: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
   border: 2px solid var(--power-border);
   box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   display: flex;
@@ -12,14 +13,42 @@
 }
 
 .power-icon {
-  font-size: 1rem;
+  font-size: 0.95rem;
   filter: drop-shadow(0 0 4px var(--power-glow));
+  flex-shrink: 0;
+}
+
+.power-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.power-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.power-stars {
+  font-size: 0.55rem;
+  line-height: 1;
+  filter: drop-shadow(0 1px 1px rgba(255, 215, 0, 0.4));
 }
 
 .power-value {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--power-text);
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   line-height: 1;
+  flex-shrink: 0;
 }

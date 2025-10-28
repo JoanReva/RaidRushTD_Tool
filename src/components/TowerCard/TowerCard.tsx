@@ -1,7 +1,6 @@
 import { useState, useMemo, memo } from 'react';
 import type { Tower, Rarity, ViewMode } from '../../types/tower';
 import { 
-  calculatePower, 
   getTargetInfo, 
   getUnlockInfo,
   formatDamage,
@@ -11,7 +10,7 @@ import {
   highlightNumericValues,
   formatUpgradeLevel
 } from '../../utils';
-import { useTowerLevel } from '../../hooks';
+import { calculatePower, getPowerRating } from '../../utils/powerCalculation';
 import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS } from '../../constants';
 import { StatBox } from './StatBox';
 import { PowerDisplay } from './PowerDisplay';
@@ -23,15 +22,27 @@ interface TowerCardProps {
   tower: Tower;
   viewMode: ViewMode;
   globalRarity: Rarity;
+  globalLevel: number;
+  onLevelChange: (direction: 1 | -1) => void;
 }
 
-const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) => {
+const TowerCardComponent = ({ tower, viewMode, globalRarity, globalLevel, onLevelChange }: TowerCardProps) => {
   const [commentaryOpen, setCommentaryOpen] = useState(false);
-  const { level, incrementLevel, decrementLevel } = useTowerLevel();
 
-  const power = useMemo(
-    () => calculatePower(tower, globalRarity, level),
-    [tower, globalRarity, level]
+  const incrementLevel = () => {
+    onLevelChange(1);
+  };
+
+  const decrementLevel = () => {
+    onLevelChange(-1);
+  };
+
+  const powerData = useMemo(
+    () => {
+      const power = calculatePower(tower, globalRarity);
+      return getPowerRating(power);
+    },
+    [tower, globalRarity]
   );
 
   const unlockInfo = useMemo(
@@ -174,9 +185,9 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity }: TowerCardProps) =
 
       <div className="tower-bottom">
         <div className="power-level-row">
-          <PowerDisplay power={power} />
+          <PowerDisplay powerData={powerData} />
           <LevelDisplay 
-            level={level} 
+            level={globalLevel} 
             onIncrement={incrementLevel} 
             onDecrement={decrementLevel} 
           />

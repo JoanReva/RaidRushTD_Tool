@@ -18,11 +18,16 @@ const towersWithCommentary = data.towers.map(tower => ({
 }));
 
 function App() {
-  const { globalRarity, setGlobalRarity, viewMode, setViewMode } = useAppState();
+  const { globalRarity, globalLevel, setGlobalRarity, setGlobalLevel, viewMode, setViewMode } = useAppState();
 
   const handleRarityChange = useCallback(
     (rarity: typeof globalRarity) => setGlobalRarity(rarity),
     [setGlobalRarity]
+  );
+
+  const handleLevelChange = useCallback(
+    (direction: 1 | -1) => setGlobalLevel(direction),
+    [setGlobalLevel]
   );
 
   const handleViewModeChange = useCallback(
@@ -38,9 +43,11 @@ function App() {
           tower={tower}
           viewMode={viewMode}
           globalRarity={globalRarity}
+          globalLevel={globalLevel}
+          onLevelChange={handleLevelChange}
         />
       )),
-    [viewMode, globalRarity]
+    [viewMode, globalRarity, globalLevel, handleLevelChange]
   );
 
   return (

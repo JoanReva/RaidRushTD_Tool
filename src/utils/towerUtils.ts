@@ -1,7 +1,5 @@
-import type { Tower, UnlockInfo } from '../types/tower';
-import type { Rarity } from '../types/tower';
-import { RARITY_MULTIPLIERS } from './rarityUtils';
-import { LEVEL_POWER_MULTIPLIER, TOWER_TARGET_EMOJIS } from '../constants';
+import type { Tower, UnlockInfo, Rarity } from '../types/tower';
+import { TOWER_TARGET_EMOJIS } from '../constants';
 
 /**
  * Gets formatted unlock information for a tower
@@ -22,51 +20,6 @@ export const getUnlockInfo = (unlockValue: UnlockInfo | null | undefined): { lab
   }
 
   return { label: 'Event', value: 'Unknown' };
-};
-
-/**
- * Calculates total power of a tower based on its stats, rarity, and level
- * @param tower - Tower data
- * @param rarity - Tower rarity
- * @param level - Tower level
- * @returns Calculated power rounded to 1 decimal place
- */
-export const calculatePower = (tower: Tower, rarity: Rarity, level: number): number => {
-  // Extract damage value
-  let baseDamage = 0;
-  const damage = tower.damage;
-  
-  if (typeof damage === 'number') {
-    baseDamage = damage;
-  } else if (damage !== null) {
-    // Prioritize different damage object properties
-    baseDamage = damage.value || damage.normal || damage.initial || damage.burst_damage || 0;
-  }
-
-  // Extract attack speed
-  const attackSpeed = tower.attack_speed || 1;
-
-  // Extract range
-  let range = 1;
-  const towerRange = tower.range;
-  
-  if (typeof towerRange === 'number') {
-    range = towerRange;
-  } else if (towerRange !== null) {
-    // If it's an object, use max or grid
-    range = towerRange.max || towerRange.grid || towerRange.blast || 1;
-  }
-
-  // Extract critical chance (decimal: 0.20 = 20%)
-  const critChance = (tower.crit_chance || 0) * 100;
-
-  const rarityMultiplier = RARITY_MULTIPLIERS[rarity];
-  const levelMultiplier = 1 + (level - 1) * LEVEL_POWER_MULTIPLIER;
-
-  const dps = baseDamage / attackSpeed;
-  const power = dps * range * (1 + critChance / 100) * rarityMultiplier * levelMultiplier;
-
-  return Math.round(power * 10) / 10;
 };
 
 /**
