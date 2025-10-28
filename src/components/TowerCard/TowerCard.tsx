@@ -11,7 +11,7 @@ import {
   formatUpgradeLevel
 } from '../../utils';
 import { calculatePower, getPowerRating } from '../../utils/powerCalculation';
-import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS } from '../../constants';
+import { TOWER_TYPE_ICONS, TOWER_STAT_EMOJIS, getAdditionalStatDisplay } from '../../constants';
 import { StatBox } from './StatBox';
 import { PowerDisplay } from './PowerDisplay';
 import { LevelDisplay } from './LevelDisplay';
@@ -115,6 +115,22 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity, globalLevel, onLeve
               type="crit"
             />
           )}
+          
+          {/* Additional stats from tower data */}
+          {tower.additional_stats && Object.entries(tower.additional_stats).map(([key, value]) => {
+            const statDisplay = getAdditionalStatDisplay(key, value);
+            if (!statDisplay) return null;
+            
+            return (
+              <StatBox
+                key={key}
+                emoji={statDisplay.emoji}
+                label={statDisplay.label}
+                value={statDisplay.value}
+                type="damage"
+              />
+            );
+          })}
         </div>
 
         <StatBox
