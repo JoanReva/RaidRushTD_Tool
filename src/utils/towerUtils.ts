@@ -49,34 +49,25 @@ export const getTargetInfo = (targets: string[]): { emoji: string; text: string 
  * @returns Formatted string for display
  */
 export const formatDamage = (damage: Tower['damage']): string => {
-  if (!damage) {
-    return 'N/A';
-  }
+  if (!damage) return 'N/A';
+  if (typeof damage === 'number') return damage.toString();
   
-  if (typeof damage === 'number') {
-    return damage.toString();
-  }
-  
-  // If it has multiple damage types
-  if (damage.normal !== undefined && damage.third_shot !== undefined) {
-    return `${damage.normal} / ${damage.third_shot}`;
-  }
-  if (damage.initial !== undefined && damage.medium !== undefined && damage.high !== undefined) {
-    return `${damage.initial} → ${damage.medium} → ${damage.high}`;
-  }
-  if (damage.burst_damage !== undefined) {
-    return damage.burst_damage.toString();
-  }
-  if (damage.value !== undefined) {
-    return damage.type ? `${damage.value} (${damage.type})` : damage.value.toString();
-  }
-  
-  // If it has a note
-  if (damage.note) {
-    return damage.note;
-  }
-  
-  return 'N/A';
+  // Check different damage patterns using array of formatters
+  const formatters = [
+    { condition: () => damage.normal !== undefined && damage.third_shot !== undefined, 
+      format: () => `${damage.normal} / ${damage.third_shot}` },
+    { condition: () => damage.initial !== undefined && damage.medium !== undefined && damage.high !== undefined, 
+      format: () => `${damage.initial} → ${damage.medium} → ${damage.high}` },
+    { condition: () => damage.burst_damage !== undefined, 
+      format: () => damage.burst_damage!.toString() },
+    { condition: () => damage.value !== undefined, 
+      format: () => damage.type ? `${damage.value} (${damage.type})` : damage.value!.toString() },
+    { condition: () => !!damage.note, 
+      format: () => damage.note! }
+  ];
+
+  const formatter = formatters.find(f => f.condition());
+  return formatter ? formatter.format() : 'N/A';
 };
 
 /**
@@ -85,23 +76,13 @@ export const formatDamage = (damage: Tower['damage']): string => {
  * @returns Formatted string for display
  */
 export const formatRange = (range: Tower['range']): string => {
-  if (!range) {
-    return 'N/A';
-  }
+  if (!range) return 'N/A';
+  if (typeof range === 'number') return range.toString();
   
-  if (typeof range === 'number') {
-    return range.toString();
-  }
-  
-  if (range.min !== undefined && range.max !== undefined) {
-    return `${range.min} - ${range.max}`;
-  }
-  if (range.grid !== undefined) {
-    return `${range.grid} (Grid)`;
-  }
-  if (range.blast !== undefined) {
-    return `${range.blast} (Blast)`;
-  }
+  // Check different range patterns
+  if (range.min !== undefined && range.max !== undefined) return `${range.min} - ${range.max}`;
+  if (range.grid !== undefined) return `${range.grid} (Grid)`;
+  if (range.blast !== undefined) return `${range.blast} (Blast)`;
   
   return 'N/A';
 };
@@ -121,11 +102,7 @@ export const formatAttackSpeed = (attackSpeed: Tower['attack_speed']): string =>
  * @returns Formatted string for display (e.g., "20%")
  */
 export const formatCritChance = (critChance: Tower['crit_chance']): string => {
-  if (!critChance) {
-    return 'N/A';
-  }
-  
-  return `${(critChance * 100).toFixed(0)}%`;
+  return critChance ? `${(critChance * 100).toFixed(0)}%` : 'N/A';
 };
 
 /**

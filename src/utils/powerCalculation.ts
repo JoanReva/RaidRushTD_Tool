@@ -96,15 +96,19 @@ function getDamageTypeMultiplier(tower: Tower): number {
     return STAT_WEIGHTS.damage.single;
   }
   
-  if ('type' in tower.damage) {
-    const damageType = tower.damage.type;
+  // Check damage type property
+  if ('type' in tower.damage && tower.damage.type) {
+    const weights = STAT_WEIGHTS.damage;
+    const typeMap: Record<string, number> = {
+      'area': weights.area,
+      'area_linear': weights.area_linear,
+      'dot': weights.dot,
+    };
     
-    if (damageType === 'area') return STAT_WEIGHTS.damage.area;
-    if (damageType === 'area_linear') return STAT_WEIGHTS.damage.area_linear;
-    if (damageType === 'dot') return STAT_WEIGHTS.damage.dot;
+    return typeMap[tower.damage.type] || weights.single;
   }
   
-  // Special types based on damage structure
+  // Infer type from damage structure
   if ('initial' in tower.damage) return STAT_WEIGHTS.damage.ramping;
   if ('third_shot' in tower.damage) return STAT_WEIGHTS.damage.burst;
   
@@ -115,63 +119,55 @@ function getDamageTypeMultiplier(tower: Tower): number {
  * Calculate power contribution from additional stats
  */
 function calculateAdditionalStatsPower(tower: Tower): number {
-  let additionalPower = 0;
-  
   if (!tower.additional_stats) return 0;
   
   const stats = tower.additional_stats;
+  let power = 0;
   
-  // Direct stat bonuses
-  if (stats.unit_health) {
-    additionalPower += stats.unit_health * STAT_WEIGHTS.unit_health;
-  }
+  // Simple stat multiplications
+  const simpleStats = [
+    { value: stats.unit_health, weight: STAT_WEIGHTS.unit_health },
+    { value: stats.slow_effect, weight: STAT_WEIGHTS.slow_effect },
+    { value: stats.stun_duration, weight: STAT_WEIGHTS.stun_duration },
+    { value: stats.push_strength, weight: STAT_WEIGHTS.push_strength },
+  ] as const;
   
-  if (stats.slow_effect) {
-    additionalPower += stats.slow_effect * STAT_WEIGHTS.slow_effect;
-  }
+  simpleStats.forEach(({ value, weight }) => {
+    if (value) power += value * weight;
+  });
   
-  if (stats.stun_duration) {
-    additionalPower += stats.stun_duration * STAT_WEIGHTS.stun_duration;
-  }
+  // Support bonuses (with 'in' check)
+  const supportBonuses = [
+    { key: 'bonus_damage', weight: STAT_WEIGHTS.bonus_damage },
+    { key: 'bonus_health', weight: STAT_WEIGHTS.bonus_health },
+    { key: 'bonus_crit_chance', weight: STAT_WEIGHTS.bonus_crit_chance },
+    { key: 'bonus_push_strength', weight: STAT_WEIGHTS.bonus_push_strength },
+  ] as const;
   
-  if (stats.push_strength) {
-    additionalPower += stats.push_strength * STAT_WEIGHTS.push_strength;
-  }
+  supportBonuses.forEach(({ key, weight }) => {
+    if (key in stats && stats[key]) {
+      power += (stats[key] as number) * weight;
+    }
+  });
   
   // Ignite damage (DoT)
-  if ('ignite_damage' in stats && 'ignite_duration' in stats && stats.ignite_damage && stats.ignite_duration) {
+  if ('ignite_damage' in stats && 'ignite_duration' in stats && 
+      stats.ignite_damage && stats.ignite_duration) {
     const igniteDPS = stats.ignite_damage / stats.ignite_duration;
-    additionalPower += igniteDPS * STAT_WEIGHTS.ignite_damage * stats.ignite_duration;
-  }
-  
-  // Support bonuses
-  if ('bonus_damage' in stats && stats.bonus_damage) {
-    additionalPower += stats.bonus_damage * STAT_WEIGHTS.bonus_damage;
-  }
-  
-  if ('bonus_health' in stats && stats.bonus_health) {
-    additionalPower += stats.bonus_health * STAT_WEIGHTS.bonus_health;
-  }
-  
-  if ('bonus_crit_chance' in stats && stats.bonus_crit_chance) {
-    additionalPower += stats.bonus_crit_chance * STAT_WEIGHTS.bonus_crit_chance;
-  }
-  
-  if ('bonus_push_strength' in stats && stats.bonus_push_strength) {
-    additionalPower += stats.bonus_push_strength * STAT_WEIGHTS.bonus_push_strength;
+    power += igniteDPS * STAT_WEIGHTS.ignite_damage * stats.ignite_duration;
   }
   
   // Blast damage
   if (stats.blast_damage && stats.blast_radius) {
-    additionalPower += stats.blast_damage * stats.blast_radius * 1.5;
+    power += stats.blast_damage * stats.blast_radius * 1.5;
   }
   
   // Cooldown penalty (longer cooldown = less power)
   if (stats.cooldown && stats.cooldown > 1) {
-    additionalPower /= Math.sqrt(stats.cooldown);
+    power /= Math.sqrt(stats.cooldown);
   }
   
-  return additionalPower;
+  return power;
 }
 
 /**

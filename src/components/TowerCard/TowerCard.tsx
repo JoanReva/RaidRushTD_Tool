@@ -1,4 +1,4 @@
-import { useState, useMemo, memo } from 'react';
+import { useState, useMemo, memo, useCallback } from 'react';
 import type { Tower, Rarity, ViewMode } from '../../types/tower';
 import { 
   getTargetInfo, 
@@ -29,36 +29,20 @@ interface TowerCardProps {
 const TowerCardComponent = ({ tower, viewMode, globalRarity, globalLevel, onLevelChange }: TowerCardProps) => {
   const [commentaryOpen, setCommentaryOpen] = useState(false);
 
-  const incrementLevel = () => {
-    onLevelChange(1);
-  };
+  // Memoized callbacks to prevent unnecessary re-renders
+  const incrementLevel = useCallback(() => onLevelChange(1), [onLevelChange]);
+  const decrementLevel = useCallback(() => onLevelChange(-1), [onLevelChange]);
+  const toggleCommentary = useCallback(() => setCommentaryOpen(prev => !prev), []);
 
-  const decrementLevel = () => {
-    onLevelChange(-1);
-  };
-
+  // Memoized calculations
   const powerData = useMemo(
-    () => {
-      const power = calculatePower(tower, globalRarity);
-      return getPowerRating(power);
-    },
+    () => getPowerRating(calculatePower(tower, globalRarity)),
     [tower, globalRarity]
   );
 
-  const unlockInfo = useMemo(
-    () => getUnlockInfo(tower.unlock_at),
-    [tower.unlock_at]
-  );
-
-  const targetInfo = useMemo(
-    () => getTargetInfo(tower.targets),
-    [tower.targets]
-  );
-
-  const typeIcon = useMemo(
-    () => TOWER_TYPE_ICONS[tower.type] || TOWER_TYPE_ICONS.Vanguard,
-    [tower.type]
-  );
+  const unlockInfo = useMemo(() => getUnlockInfo(tower.unlock_at), [tower.unlock_at]);
+  const targetInfo = useMemo(() => getTargetInfo(tower.targets), [tower.targets]);
+  const typeIcon = useMemo(() => TOWER_TYPE_ICONS[tower.type] || TOWER_TYPE_ICONS.Vanguard, [tower.type]);
 
   // Filter out merge upgrades for the detailed view
   const regularUpgrades = useMemo(
@@ -171,7 +155,7 @@ const TowerCardComponent = ({ tower, viewMode, globalRarity, globalLevel, onLeve
           <div className="tower-commentary">
             <button
               className="commentary-toggle"
-              onClick={() => setCommentaryOpen(!commentaryOpen)}
+              onClick={toggleCommentary}
               aria-expanded={commentaryOpen}
             >
               {TOWER_STAT_EMOJIS.COMMENTARY} {commentaryOpen ? 'Hide' : 'Show'} Commentary

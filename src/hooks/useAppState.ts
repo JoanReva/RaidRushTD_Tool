@@ -3,114 +3,73 @@ import type { Rarity, ViewMode } from '../types/tower';
 import { getMinLevel, getRarityForLevel } from '../constants/levelScaling';
 
 /**
- * Internal level system:
- * - Regular levels: 1, 2, 3, ..., 59, 60
- * - Boundary levels have TWO states:
- *   - 10.0 = Common(10)
- *   - 10.5 = Good(10)
- *   - 20.0 = Good(20)
- *   - 20.5 = Rare(20)
- *   etc.
- * 
- * Display level is always Math.floor(internalLevel)
+ * Internal level system for boundary handling:
+ * - Regular levels: 1, 2, ..., 59, 60
+ * - Boundary levels (10, 20, 30, 40, 50) have TWO states:
+ *   - X.0 = Lower rarity (e.g., 50.0 = Epic+)
+ *   - X.5 = Higher rarity (e.g., 50.5 = Legendary)
+ * - Display level: Math.floor(internalLevel)
  */
+
+const LEVEL_MIN = 1;
+const LEVEL_MAX = 60;
+const BOUNDARY_OFFSET = 0.5;
+
+const isBoundaryLevel = (level: number): boolean => 
+  level % 10 === 0 && level < LEVEL_MAX;
+
+const getRarityAtBoundary = (internalLevel: number, displayLevel: number): Rarity => {
+  const isLowerRarity = internalLevel === displayLevel;
+  const adjacentLevel = isLowerRarity ? displayLevel - 1 : displayLevel + 1;
+  return getRarityForLevel(adjacentLevel) || 'Common';
+};
 
 export const useAppState = () => {
   const [globalRarity, setGlobalRarityState] = useState<Rarity>('Common');
-  // Internal level can be X.0 or X.5 for boundary levels
-  const [internalLevel, setInternalLevel] = useState<number>(1);
+  const [internalLevel, setInternalLevel] = useState<number>(LEVEL_MIN);
   const [viewMode, setViewMode] = useState<ViewMode>('simple');
 
-  // When rarity changes (user clicks rarity selector)
   const handleSetGlobalRarity = useCallback((rarity: Rarity) => {
-    // Go to the maximum level of the selected rarity (multiples of 10)
-    // Except Common which starts at 1
-    const targetLevel = rarity === 'Common' ? 1 : getMinLevel(rarity) + 9; // 10, 20, 30, 40, 50, 60
-    
-    // For boundary levels (10, 20, 30, 40, 50), use X.5 to indicate higher rarity
-    const isBoundary = targetLevel % 10 === 0 && targetLevel < 60;
-    const internal = isBoundary ? targetLevel + 0.5 : targetLevel;
+    const targetLevel = rarity === 'Common' ? LEVEL_MIN : getMinLevel(rarity) + 9;
+    const internal = isBoundaryLevel(targetLevel) ? targetLevel + BOUNDARY_OFFSET : targetLevel;
     
     setGlobalRarityState(rarity);
     setInternalLevel(internal);
   }, []);
 
-  // When level changes (user clicks level +/- buttons)
   const handleSetGlobalLevel = useCallback((direction: 1 | -1) => {
     setInternalLevel(prevInternal => {
       const displayLevel = Math.floor(prevInternal);
-      const isAtBoundary = displayLevel % 10 === 0 && displayLevel < 60;
-      const isLowerRarity = prevInternal === displayLevel; // X.0 = lower rarity
-      const isHigherRarity = prevInternal > displayLevel; // X.5 = higher rarity
+      const isAtBoundary = isBoundaryLevel(displayLevel);
+      const isLowerRarity = prevInternal === displayLevel;
       
-      let newInternal = prevInternal;
+      let newInternal: number;
       
-      if (direction === 1) {
-        // Moving UP [+]
-        if (isAtBoundary && isLowerRarity) {
-          // At boundary in lower rarity: switch to higher rarity (same display level)
-          // Example: 50.0 (Epic+) → 50.5 (Legendary)
-          newInternal = displayLevel + 0.5;
-        } else if (isAtBoundary && isHigherRarity) {
-          // At boundary in higher rarity: move to next level
-          // Example: 50.5 (Legendary) → 51.0 (Legendary)
-          newInternal = displayLevel + 1;
+      if (isAtBoundary) {
+        if (direction === 1) {
+          // At boundary going up: X.0 → X.5 → (X+1).0
+          newInternal = isLowerRarity ? displayLevel + BOUNDARY_OFFSET : displayLevel + 1;
         } else {
-          // Regular level: increment normally
-          newInternal = Math.min(prevInternal + 1, 60);
-          
-          // Check if we arrived at a new boundary (from below)
-          const newDisplay = Math.floor(newInternal);
-          const arrivedAtBoundary = newDisplay % 10 === 0 && newDisplay < 60;
-          if (arrivedAtBoundary) {
-            // Arriving at boundary from below: use lower rarity (X.0)
-            // Example: 49 → 50.0 (Epic+)
-            newInternal = newDisplay;
-          }
+          // At boundary going down: X.5 → X.0 → (X-1).0
+          newInternal = isLowerRarity ? displayLevel - 1 : displayLevel;
         }
       } else {
-        // Moving DOWN [-]
-        if (isAtBoundary && isHigherRarity) {
-          // At boundary in higher rarity: switch to lower rarity (same display level)
-          // Example: 50.5 (Legendary) → 50.0 (Epic+)
-          newInternal = displayLevel;
-        } else if (isAtBoundary && isLowerRarity) {
-          // At boundary in lower rarity: move to previous level
-          // Example: 50.0 (Epic+) → 49.0 (Epic+)
-          newInternal = displayLevel - 1;
-        } else {
-          // Regular level: decrement normally
-          newInternal = Math.max(prevInternal - 1, 1);
-          
-          // Check if we arrived at a boundary (from above)
-          const newDisplay = Math.floor(newInternal);
-          const arrivedAtBoundary = newDisplay % 10 === 0 && newDisplay < 60;
-          if (arrivedAtBoundary) {
-            // Arriving at boundary from above: use higher rarity (X.5)
-            // Example: 51 → 50.5 (Legendary)
-            newInternal = newDisplay + 0.5;
-          }
+        // Regular level: increment/decrement with clamping
+        newInternal = Math.max(LEVEL_MIN, Math.min(LEVEL_MAX, prevInternal + direction));
+        
+        // Check if we arrived at a boundary
+        const newDisplay = Math.floor(newInternal);
+        if (isBoundaryLevel(newDisplay)) {
+          // Arriving from below: use X.0 (lower), from above: use X.5 (higher)
+          newInternal = direction === 1 ? newDisplay : newDisplay + BOUNDARY_OFFSET;
         }
       }
       
-      // Update rarity based on internal level
+      // Update rarity based on new internal level
       const newDisplayLevel = Math.floor(newInternal);
-      const newIsAtBoundary = newDisplayLevel % 10 === 0 && newDisplayLevel < 60;
-      
-      let newRarity: Rarity;
-      if (newIsAtBoundary) {
-        // At boundary: check if X.0 (lower) or X.5 (higher)
-        if (newInternal === newDisplayLevel) {
-          // X.0 = lower rarity
-          newRarity = getRarityForLevel(newDisplayLevel - 1) || 'Common';
-        } else {
-          // X.5 = higher rarity
-          newRarity = getRarityForLevel(newDisplayLevel + 1) || 'Common';
-        }
-      } else {
-        // Regular level
-        newRarity = getRarityForLevel(newDisplayLevel) || 'Common';
-      }
+      const newRarity = isBoundaryLevel(newDisplayLevel)
+        ? getRarityAtBoundary(newInternal, newDisplayLevel)
+        : getRarityForLevel(newDisplayLevel) || 'Common';
       
       setGlobalRarityState(newRarity);
       return newInternal;
@@ -123,7 +82,7 @@ export const useAppState = () => {
 
   return {
     globalRarity,
-    globalLevel: Math.floor(internalLevel), // Display level is always integer
+    globalLevel: Math.floor(internalLevel),
     setGlobalRarity: handleSetGlobalRarity,
     setGlobalLevel: handleSetGlobalLevel,
     viewMode,
