@@ -1,0 +1,512 @@
+{
+  "towers": [
+    {
+      "id": 1,
+      "name": "Mortar",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": { "min": 1, "max": 2.5 },
+      "attack_speed": 2.5,
+      "damage": { "value": 87.5, "type": "area" },
+      "crit_chance": 0.1,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Mortar.svg"
+    },
+    {
+      "id": 2,
+      "name": "Cannon",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": 1,
+      "attack_speed": 1.25,
+      "damage": { "value": 156.3, "type": "ranged" },
+      "crit_chance": 0.1,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Cannon.svg"
+    },
+    {
+      "id": 3,
+      "name": "Garrison",
+      "type": "Swift",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": 5,
+      "attack_speed": 1.33,
+      "damage": { "value": 60, "type": "unit" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Damage +3%, Max Health +2% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "unit_health": 300
+      },
+      "image": "/towers/Garrison.svg"
+    },
+    {
+      "id": 4,
+      "name": "Spike",
+      "type": "Swift",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 0.33,
+      "damage": { "value": 26.7, "type": "direct" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "slow_effect": 0.05
+      },
+      "image": "/towers/Spike.svg"
+    },
+    {
+      "id": 5,
+      "name": "Vulcan",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": 0.9,
+      "attack_speed": 0.2,
+      "damage": { "value": 30, "type": "ranged" },
+      "crit_chance": 0.2,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Vulcan.svg"
+    },
+    {
+      "id": 6,
+      "name": "Tesla",
+      "type": "Elemental",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": 1,
+      "attack_speed": 0.57,
+      "damage": { "value": 24, "type": "area" },
+      "crit_chance": 0.02,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +4% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Tesla.svg"
+    },
+    {
+      "id": 7,
+      "name": "Sky Guard",
+      "type": "Vanguard",
+      "targets": ["Air"],
+      "unlock_at": null,
+      "range": 1.25,
+      "attack_speed": 1.11,
+      "damage": { "value": 203.3, "type": "ranged" },
+      "crit_chance": 0.1,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Sky_Guard.svg"
+    },
+    {
+      "id": 8,
+      "name": "Frost Gun",
+      "type": "Elemental",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": 1.5,
+      "attack_speed": 1,
+      "damage": { "value": 95, "type": "ranged" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "slow_effect": 0.25
+      },
+      "image": "/towers/Frost_Gun.svg"
+    },
+    {
+      "id": 9,
+      "name": "Laser",
+      "type": "Elemental",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": 1.1,
+      "attack_speed": 0.1,
+      "damage": {
+        "type": "ramping",
+        "initial": 7,
+        "medium": 25,
+        "high": 40
+      },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Initial Damage +5%, Medium Damage +5% and High Damage +5%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Laser.svg"
+    },
+    {
+      "id": 10,
+      "name": "Bowling",
+      "type": "Utility",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 7.69,
+      "damage": { "value": 92.3, "type": "area" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "stun_duration": 1
+      },
+      "image": "/towers/Bowling.svg"
+    },
+    {
+      "id": 11,
+      "name": "Fireworks",
+      "type": "Elemental",
+      "targets": ["Air"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 1,
+      "damage": { "value": 140, "type": "area" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "cooldown": 1
+      },
+      "image": "/towers/Fireworks.svg"
+    },
+    {
+      "id": 12,
+      "name": "Wind Blower",
+      "type": "Utility",
+      "targets": ["Air"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 8,
+      "damage": null,
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Push Strength +5% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "push_strength": 0.25
+      },
+      "image": "/towers/Wind_Blower.svg"
+    },
+    {
+      "id": 13,
+      "name": "Drone Launcher",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": 5,
+      "attack_speed": 1.33,
+      "damage": { "value": 46.7, "type": "ranged" },
+      "crit_chance": 0.2,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3%, Max Health +2% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "unit_health": 275
+      },
+      "image": "/towers/Drone_Launcher.svg"
+    },
+    {
+      "id": 14,
+      "name": "Mine",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": 0.5,
+      "attack_speed": 1,
+      "damage": { "value": 250, "type": "area" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "cooldown": 1.75,
+        "blast_radius": 0.5
+      },
+      "image": "/towers/Mine.svg"
+    },
+    {
+      "id": 15,
+      "name": "Support",
+      "type": "Utility",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": null,
+      "damage": null,
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Bonus Health +2% and Bonus Damage +1%" }
+      ],
+      "additional_stats": {
+        "bonus_health": 0.15,
+        "bonus_damage": 0.15,
+        "bonus_crit_chance": 0.1,
+        "bonus_push_strength": 0.105,
+        "bonus_dance_duration": 0.05
+      },
+      "image": "/towers/Support.svg"
+    },
+    {
+      "id": 16,
+      "name": "Inferno",
+      "type": "Elemental",
+      "targets": ["Air", "Ground"],
+      "unlock_at": null,
+      "range": 1.25,
+      "attack_speed": 1.43,
+      "damage": {
+        "type": "area_dot",
+        "value": 57.1,
+        "ignite_damage": 22.9
+      },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3%, Ignite Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "ignite_duration": 5
+      },
+      "image": "/towers/Inferno.svg"
+    },
+    {
+      "id": 17,
+      "name": "Boomerang",
+      "type": "Swift",
+      "targets": ["Air"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 0.83,
+      "damage": { "value": 133.3, "type": "area" },
+      "crit_chance": 0.2,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Boomerang.svg"
+    },
+    {
+      "id": 18,
+      "name": "Disco Ball",
+      "type": "Utility",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": 1.25,
+      "attack_speed": 0.25,
+      "damage": null,
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Fuzzy Effect +5% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "fuzzy_effect": 0.1,
+        "dance_duration": 4
+      },
+      "image": "/towers/Disco_Ball.svg"
+    },
+    {
+      "id": 19,
+      "name": "Sniper",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": { "min": 1.5, "max": 3.2 },
+      "attack_speed": 5,
+      "damage": { "value": 750, "type": "ranged" },
+      "crit_chance": 0.12,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Sniper.svg"
+    },
+    {
+      "id": 20,
+      "name": "Tornado",
+      "type": "Elemental",
+      "targets": ["Ground"],
+      "unlock_at": null,
+      "range": null,
+      "attack_speed": 6.25,
+      "damage": { "value": 187.5, "type": "direct" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "stun_duration": 1,
+        "push_strength": 1
+      },
+      "image": "/towers/Tornado.svg"
+    },
+
+    {
+      "name": "Aeroblast",
+      "type": "Vanguard",
+      "targets": ["Air"],
+      "unlock_at": null,
+      "range": 1.5,
+      "attack_speed": 1.25,
+      "damage": { "value": 125, "type": "area" },
+      "crit_chance": 0.1,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Aeroblast.svg"
+    },
+    {
+      "name": "Mecha Nest",
+      "type": "Elemental",
+      "targets": ["Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 3,
+      "attack_speed": 0.33,
+      "damage": { "value": 33.3, "type": "dot", "note": "Toxic Damage" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Toxic Damage +3%, Blast Damage +5% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "blast_damage": 250,
+        "blast_radius": 1
+      },
+      "image": "/towers/Mecha_Nest.svg"
+    },
+    {
+      "name": "Fury",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 1,
+      "attack_speed": 0.5,
+      "damage": { "value": 82.5, "type": "burst", "burst_damage": 165 },
+      "crit_chance": 0.2,
+      "upgrades": [
+        { "level": "merge", "description": "Damage +3%, Burst Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "burst_trigger": 40
+      },
+      "image": "/towers/Fury.svg"
+    },
+    {
+      "name": "Hook",
+      "type": "Utility",
+      "targets": ["Ground"],
+      "unlock_at": { "event": "events" },
+      "range": null,
+      "attack_speed": 0.2,
+      "damage": { "value": 10, "type": "single" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Damage +5% and Slow Effect +2%" }
+      ],
+      "additional_stats": {
+        "slow_effect": 0.1,
+        "hook_length": 0.75,
+        "hook_count": 2
+      },
+      "image": "/towers/Hook.svg"
+    },
+    {
+      "name": "Multi-Barrel",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 1,
+      "attack_speed": 0.67,
+      "damage": { "value": 93.3, "type": "single", "note": "Ranged Dmg" },
+      "crit_chance": 0.5,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Multi-Barrel.svg"
+    },
+    {
+      "name": "Ballista",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": { "event": "events" },
+      "range": null,
+      "attack_speed": 5,
+      "damage": { "value": 475, "type": "area" },
+      "crit_chance": 0.05,
+      "upgrades": [
+        { "level": "merge", "description": "Area Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Ballista.svg"
+    },
+    {
+      "name": "Double Cannon",
+      "type": "Vanguard",
+      "targets": ["Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 1,
+      "attack_speed": 1,
+      "damage": { "value": 160, "type": "burst", "burst_damage": 400, "note": "Ranged Dmg" },
+      "crit_chance": null,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3%, Burst Damage +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Double_Cannon.svg"
+    },
+    {
+      "name": "Gambler",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 1,
+      "attack_speed": 0.67,
+      "damage": { "value": 93.3, "type": "single", "note": "Ranged Dmg" },
+      "crit_chance": 0.15,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {},
+      "image": "/towers/Gambler.svg"
+    },
+    {
+      "name": "T-800 Guardian",
+      "type": "Swift",
+      "targets": ["Air", "Ground"],
+      "unlock_at": { "event": "events" },
+      "range": 0.9,
+      "attack_speed": 0.4,
+      "damage": { "value": 54, "type": "single", "note": "Ranged Dmg" },
+      "crit_chance": 0.2,
+      "upgrades": [
+        { "level": "merge", "description": "Ranged Dmg +3% and Attack Rate -2%" }
+      ],
+      "additional_stats": {
+        "rage_time": 15,
+        "rage_boost": 0.25
+      },
+      "image": "/towers/T-800_Guardian.svg"
+    }
+  ]
+}

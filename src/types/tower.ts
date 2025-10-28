@@ -71,3 +71,6 @@ export interface TowersData {
   towers: Tower[];
 }
 
+export interface TowerCommentary {
+  commentary: Record<string, string>;
+}

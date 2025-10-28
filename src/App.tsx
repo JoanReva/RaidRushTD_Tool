@@ -4,10 +4,18 @@ import { RaritySelector } from './components/RaritySelector/RaritySelector';
 import { ViewModeSelector } from './components/ViewModeSelector/ViewModeSelector';
 import { TowerCard } from './components/TowerCard/TowerCard';
 import towersData from './data/towers.json';
-import type { TowersData } from './types/tower';
+import commentaryData from './data/towers_commentary.json';
+import type { TowersData, TowerCommentary } from './types/tower';
 import './App.css';
 
 const data = towersData as TowersData;
+const commentary = commentaryData as TowerCommentary;
+
+// Merge commentary into towers
+const towersWithCommentary = data.towers.map(tower => ({
+  ...tower,
+  commentary: commentary.commentary[tower.id.toString()]
+}));
 
 function App() {
   const { globalRarity, setGlobalRarity, viewMode, setViewMode } = useAppState();
@@ -24,7 +32,7 @@ function App() {
 
   const towerCards = useMemo(
     () =>
-      data.towers.map((tower, index) => (
+      towersWithCommentary.map((tower, index) => (
         <TowerCard
           key={`${tower.name}-${index}`}
           tower={tower}
