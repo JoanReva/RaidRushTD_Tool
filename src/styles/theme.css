@@ -2,30 +2,36 @@
    THEME VARIABLES - Cambia estos valores para personalizar colores
    ============================================ */
 :root {
+  /* ==== COLORES BASE ==== */
+  /* Colores principales del sistema */
+  --color-white: #ffffff;
+  --color-dark: #1e293b;
+  --color-darker: #1f2937;
+  
   /* Colores de rareza - Del diseño original */
   --rarity-common-from: #9ca3af;
   --rarity-common-to: #6b7280;
-  --rarity-common-text: #ffffff;
+  --rarity-common-text: var(--color-white);
 
   --rarity-good-from: #34d399;
   --rarity-good-to: #10b981;
-  --rarity-good-text: #ffffff;
+  --rarity-good-text: var(--color-white);
 
   --rarity-rare-from: #60a5fa;
   --rarity-rare-to: #3b82f6;
-  --rarity-rare-text: #ffffff;
+  --rarity-rare-text: var(--color-white);
 
   --rarity-epic-from: #a78bfa;
   --rarity-epic-to: #8b5cf6;
-  --rarity-epic-text: #ffffff;
+  --rarity-epic-text: var(--color-white);
 
   --rarity-epic-plus-from: #c084fc;
   --rarity-epic-plus-to: #9333ea;
-  --rarity-epic-plus-text: #ffffff;
+  --rarity-epic-plus-text: var(--color-white);
 
   --rarity-legendary-from: #fbbf24;
   --rarity-legendary-to: #f59e0b;
-  --rarity-legendary-text: #1f2937;
+  --rarity-legendary-text: var(--color-darker);
 
   /* Colores de header/footer */
   --header-bg-from: #1e3554;
@@ -49,29 +55,37 @@
   --card-body-from: #c8d9e8;
   --card-body-to: #a8bdd4;
 
-  /* Colores de stats - Del diseño original con transparencias */
+  /* ==== COLORES DE STATS ==== */
+  /* Colores base para stats */
+  --stat-color-damage: #10b981;
+  --stat-color-attackrate: #f97316;
+  --stat-color-range: #3b82f6;
+  --stat-color-crit: #dc2626;
+  --stat-color-neutral: #6b8aa8;
+  
+  /* Stats con transparencias derivadas */
   --stat-damage-bg: rgba(52, 211, 153, 0.3);
   --stat-damage-bg-to: rgba(16, 185, 129, 0.2);
-  --stat-damage-text: #1e293b;
+  --stat-damage-text: var(--color-dark);
   --stat-damage-border: rgba(16, 185, 129, 0.5);
   
   --stat-attackrate-bg: rgba(251, 146, 60, 0.3);
   --stat-attackrate-bg-to: rgba(249, 115, 22, 0.2);
-  --stat-attackrate-text: #1e293b;
+  --stat-attackrate-text: var(--color-dark);
   --stat-attackrate-border: rgba(249, 115, 22, 0.5);
   
   --stat-range-bg: rgba(96, 165, 250, 0.3);
   --stat-range-bg-to: rgba(59, 130, 246, 0.2);
-  --stat-range-text: #1e293b;
+  --stat-range-text: var(--color-dark);
   --stat-range-border: rgba(59, 130, 246, 0.5);
   
   --stat-crit-bg: rgba(239, 68, 68, 0.3);
   --stat-crit-bg-to: rgba(220, 38, 38, 0.2);
-  --stat-crit-text: #1e293b;
+  --stat-crit-text: var(--color-dark);
   --stat-crit-border: rgba(220, 38, 38, 0.5);
   
-  --stat-targets-bg: #ffffff;
-  --stat-targets-text: #1e293b;
+  --stat-targets-bg: var(--color-white);
+  --stat-targets-text: var(--color-dark);
   --stat-targets-border: rgba(107, 138, 168, 0.4);
 
   /* Colores de unlock - Del diseño original */

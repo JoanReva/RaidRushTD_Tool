@@ -37,9 +37,9 @@ function App() {
 
   const towerCards = useMemo(
     () =>
-      towersWithCommentary.map((tower, index) => (
+      towersWithCommentary.map((tower) => (
         <TowerCard
-          key={`${tower.name}-${index}`}
+          key={tower.id}
           tower={tower}
           viewMode={viewMode}
           globalRarity={globalRarity}
