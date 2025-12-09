@@ -72,7 +72,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Mortar_Tower.svg"
+      "image": "/towers/Mortar_Tower.jpg"
     },
     {
       "id": 2,
@@ -143,7 +143,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Cannon_Tower.svg"
+      "image": "/towers/Cannon_Tower.jpg"
     },
     {
       "id": 3,
@@ -219,7 +219,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Garrison_Tower.svg"
+      "image": "/towers/Garrison_Tower.jpg"
     },
     {
       "id": 4,
@@ -293,7 +293,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Spike_Trap.svg"
+      "image": "/towers/Spike_Trap.jpg"
     },
     {
       "id": 5,
@@ -365,7 +365,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Vulcan_Tower.svg"
+      "image": "/towers/Vulcan_Tower.jpg"
     },
     {
       "id": 6,
@@ -437,7 +437,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Tesla_Tower.svg"
+      "image": "/towers/Tesla_Tower.jpg"
     },
     {
       "id": 7,
@@ -508,7 +508,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Sky_Guard_Tower.svg"
+      "image": "/towers/Sky_Guard_Tower.jpg"
     },
     {
       "id": 8,
@@ -582,7 +582,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Frost_Gun_Tower.svg"
+      "image": "/towers/Frost_Gun_Tower.jpg"
     },
     {
       "id": 9,
@@ -656,7 +656,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Laser_Tower.svg"
+      "image": "/towers/Laser_Tower.jpg"
     },
     {
       "id": 10,
@@ -730,7 +730,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Bowling_Tower.svg"
+      "image": "/towers/Bowling_Tower.jpg"
     },
     {
       "id": 11,
@@ -804,7 +804,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Fireworks_Trap.svg"
+      "image": "/towers/Fireworks_Trap.jpg"
     },
     {
       "id": 12,
@@ -875,7 +875,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Wind_Blower_Tower.svg"
+      "image": "/towers/Wind_Blower_Tower.jpg"
     },
     {
       "id": 13,
@@ -952,7 +952,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Drone_Launcher_Tower.svg"
+      "image": "/towers/Drone_Launcher_Tower.jpg"
     },
     {
       "id": 14,
@@ -1027,7 +1027,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Mine_Trap.svg"
+      "image": "/towers/Mine_Trap.jpg"
     },
     {
       "id": 15,
@@ -1100,7 +1100,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Support_Tower.svg"
+      "image": "/towers/Support_Tower.jpg"
     },
     {
       "id": 16,
@@ -1176,7 +1176,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Inferno_Tower.svg"
+      "image": "/towers/Inferno_Tower.jpg"
     },
     {
       "id": 17,
@@ -1247,7 +1247,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Boomerang_Tower.svg"
+      "image": "/towers/Boomerang_Tower.jpg"
     },
     {
       "id": 18,
@@ -1319,7 +1319,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Disco_Ball_Tower.svg"
+      "image": "/towers/Disco_Ball_Tower.jpg"
     },
     {
       "id": 19,
@@ -1393,7 +1393,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Sniper_Tower.svg"
+      "image": "/towers/Sniper_Tower.jpg"
     },
     {
       "id": 20,
@@ -1468,7 +1468,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Tornado_Tower.svg"
+      "image": "/towers/Tornado_Tower.jpg"
     },
     {
       "id": 21,
@@ -1539,7 +1539,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Aeroblast_Tower.svg"
+      "image": "/towers/Aeroblast_Tower.jpg"
     },
     {
       "id": 101,
@@ -1617,7 +1617,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Mecha_Nest_Tower.svg"
+      "image": "/towers/Mecha_Nest_Tower.jpg"
     },
     {
       "id": 102,
@@ -1693,7 +1693,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Fury_Tower.svg"
+      "image": "/towers/Fury_Tower.jpg"
     },
     {
       "id": 103,
@@ -1769,7 +1769,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Hook_Tower.svg"
+      "image": "/towers/Hook_Tower.jpg"
     },
     {
       "id": 104,
@@ -1841,7 +1841,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Multi_barrel_Tower.svg"
+      "image": "/towers/Multi_barrel_Tower.jpg"
     },
     {
       "id": 105,
@@ -1912,7 +1912,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Ballista_Tower.svg"
+      "image": "/towers/Ballista_Tower.jpg"
     },
     {
       "id": 106,
@@ -1984,7 +1984,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Double_Cannon_Tower.svg"
+      "image": "/towers/Double_Cannon_Tower.jpg"
     },
     {
       "id": 107,
@@ -2056,7 +2056,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/Gambler_Tower.svg"
+      "image": "/towers/Gambler_Tower.jpg"
     },
     {
       "id": 108,
@@ -2132,7 +2132,7 @@
           "description": ""
         }
       ],
-      "image": "/towers/T_800_Tower.svg"
+      "image": "/towers/T_800_Tower.jpg"
     }
   ]
 }
